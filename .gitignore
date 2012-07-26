@@ -1,0 +1,13 @@
+*\Bin
+*\bin
+*\obj
+*\Obj
+*.user
+*.suo
+*.xap
+*.log
+*.user
+_ReSharper.*
+ReSharper.*
+packages/
+!packages/repositories.config

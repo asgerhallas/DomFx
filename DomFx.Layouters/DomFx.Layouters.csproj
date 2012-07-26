@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4C01A9E0-29FB-4A47-9B6B-86FA83549B77}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DomFx.Layouters</RootNamespace>
+    <AssemblyName>DomFx.Layouters</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\DomFx\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\Change.cs" />
+    <Compile Include="Actions\Changed.cs" />
+    <Compile Include="ElementsLayouter.cs" />
+    <Compile Include="KeepCurrent.cs" />
+    <Compile Include="Actions\Move.cs" />
+    <Compile Include="Specification\Backgrounded.cs" />
+    <Compile Include="Behaviors\Behavior.cs" />
+    <Compile Include="Behaviors\Behaviors.cs" />
+    <Compile Include="Specification\ElementSpecification.cs" />
+    <Compile Include="Specification\FlowStyle.cs" />
+    <Compile Include="Specification\Document.cs" />
+    <Compile Include="Edge.cs" />
+    <Compile Include="Actions\KeepTogether.cs" />
+    <Compile Include="Specification\HorizontalAlignment.cs" />
+    <Compile Include="Specification\Borders.cs" />
+    <Compile Include="Specification\Box.cs" />
+    <Compile Include="Specification\Content.cs" />
+    <Compile Include="Specification\Font.cs" />
+    <Compile Include="Behaviors\HeightBehavior.cs" />
+    <Compile Include="Specification\Image.cs" />
+    <Compile Include="Specification\ImageBehavior.cs" />
+    <Compile Include="Specification\Imaged.cs" />
+    <Compile Include="Specification\ImageSource.cs" />
+    <Compile Include="Behaviors\MaintainWidthAspectRatioBehavior.cs" />
+    <Compile Include="Behaviors\MaintainHeightAspectRatioBehavior.cs" />
+    <Compile Include="Specification\Margins.cs" />
+    <Compile Include="Specification\DefaultSection.cs" />
+    <Compile Include="Behaviors\NullBehavior.cs" />
+    <Compile Include="Behaviors\StandardHeightBehavior.cs" />
+    <Compile Include="Behaviors\StandardWidthBehavior.cs" />
+    <Compile Include="Specification\Text.cs" />
+    <Compile Include="Behaviors\TextBehavior.cs" />
+    <Compile Include="Specification\Texted.cs" />
+    <Compile Include="Behaviors\TextHeightBehavior.cs" />
+    <Compile Include="Specification\TextPlaceholder.cs" />
+    <Compile Include="Specification\TextPlaceholderReplacement.cs" />
+    <Compile Include="Layouter.cs" />
+    <Compile Include="LayoutedElement.cs" />
+    <Compile Include="FixedElement.cs" />
+    <Compile Include="KeepTogetherBatch.cs" />
+    <Compile Include="Line.cs" />
+    <Compile Include="Children.cs" />
+    <Compile Include="Lines.cs" />
+    <Compile Include="LinesEx.cs" />
+    <Compile Include="LiningLayouter.cs" />
+    <Compile Include="LinqEx.cs" />
+    <Compile Include="Page.cs" />
+    <Compile Include="PagingLayouter.cs" />
+    <Compile Include="Pointer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Specification\VerticalAlignment.cs" />
+    <Compile Include="Behaviors\WidthBehavior.cs" />
+    <Compile Include="Actions\Stop.cs" />
+    <Compile Include="Actions\StopOr.cs" />
+    <Compile Include="Unit.cs" />
+    <Compile Include="UnitEx.cs" />
+    <Compile Include="UnitType.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
