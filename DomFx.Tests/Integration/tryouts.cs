@@ -45,6 +45,24 @@ namespace DomFx.Tests.Integration
 //Efter en del forvirring fandt vi frem til museet. Man fik udleveret et sæt hørebøffer og kunne derefter gå rundt fra instrument til instrument og høre, hvordan den lød. Jeg synes, det var vildt spændende, men Gitte fik ikke så meget ud af det. Det var sjovt at se, hvordan klaveret var udviklet fra et orgellignende strengeinstrument til det, som vi kender i dag.
 //Imens vi gik derinde begyndte det pludseligt at styrte ned. Det havde ellers været flot vejr hele dagen og jeg havde ladet jakken blive hjemme. Så da vi endelig kom op på 7. sal for at nyde udsigten, måtte vi stå ude i silende regn. Øv bøv. Men det var smukt alligevel.";
 
+        [Fact(Skip="")]
+        public void text_set_to_null_has_previously_caused_exception_in_text_render()
+        {
+            Setup(() =>
+            {
+                var manifestResourceStream = GetType().Assembly.GetManifestResourceStream("DomFx.Tests.Resources.DINOffc.ttf");
+                var readFully = ReadFully(manifestResourceStream);
+                var baseFont = BaseFont.CreateFont("DINOffc.ttf", BaseFont.CP1252, true, true, readFully, null);
+
+                Box().Width(10).Borders(1, 1, 1, 1, Colors.Aqua);
+                Text().Font(new iTextSharpFont(baseFont, 12, 12)).Text(null).Width(10);
+            });
+
+            Layout();
+
+            ShowWithiTextSharp();
+        }
+
         [Fact(Skip = "")]
         public void test_i_text_sharp()
         {

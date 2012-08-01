@@ -125,7 +125,7 @@ namespace DomFx.Api
 
         public static T Text<T>(this T builder, string text) where T : TextedElementSpecificationBuilder<T>
         {
-            builder.Element.TextContent = text;
+            builder.Element.TextContent = text ?? "";
             return builder;
         }
 
