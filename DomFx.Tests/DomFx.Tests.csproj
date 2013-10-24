@@ -61,6 +61,12 @@
   <ItemGroup>
     <Compile Include="Fakes\TestBehaviors.cs" />
     <Compile Include="Fakes\TestFont.cs" />
+    <Content Include="Integration\longtext1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Integration\longtext2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Compile Include="Integration\input_to_pages_tests.cs" />
     <Compile Include="Fakes\TestPdfSharpFont.cs" />
     <Compile Include="Integration\tryouts.cs" />

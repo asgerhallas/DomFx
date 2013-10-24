@@ -147,6 +147,13 @@ namespace DomFx.Layouters
 
             var innerSpaceLeftBeforeSplit = spaceLeftBeforeSplit - Edge.TotalVertical;
 
+            var text = Specification as Text;
+            if (text != null)
+            {
+                var lineHeight = text.Font.CalculateLineHeight();
+                innerSpaceLeftBeforeSplit -= innerSpaceLeftBeforeSplit%lineHeight;
+            }
+
             var part2InnerHeightAfterSplit = InnerHeight - innerSpaceLeftBeforeSplit;
             if (part2InnerHeightAfterSplit < WidowHeight)
             {

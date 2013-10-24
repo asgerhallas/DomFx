@@ -4,22 +4,19 @@ namespace DomFx.Layouters
 {
     public class Pointer
     {
+        readonly int pageNumber;
         readonly Unit pageHeight;
         readonly Line previousLine;
         readonly Unit spaceToEndOfPage;
 
-        Pointer(Unit pageHeight, Unit spaceToEndOfPage, Unit current, Unit nextPage, Line previousLine)
+        Pointer(int pageNumber, Unit pageHeight, Unit spaceToEndOfPage, Unit current, Unit nextPage, Line previousLine)
         {
+            this.pageNumber = pageNumber;
             this.pageHeight = pageHeight;
             this.spaceToEndOfPage = spaceToEndOfPage;
             this.previousLine = previousLine;
             Current = current;
             NextPage = nextPage;
-        }
-
-        Pointer(Pointer position, Unit current, Unit nextPage, Line previousLine)
-            : this(position.pageHeight, position.spaceToEndOfPage, current, nextPage, previousLine)
-        {
         }
 
         public Unit PageHeight
@@ -37,7 +34,7 @@ namespace DomFx.Layouters
 
         public static Pointer Origo(Unit pageHeight, Unit spaceToEndOfPage)
         {
-            return new Pointer(pageHeight, spaceToEndOfPage, 0.cm(), spaceToEndOfPage, null);
+            return new Pointer(0, pageHeight, spaceToEndOfPage, 0.cm(), spaceToEndOfPage, null);
         }
 
         public Pointer GotoAfter(Line line)
@@ -47,9 +44,9 @@ namespace DomFx.Layouters
 
         public Pointer GotoAfter(Line line, Unit position)
         {
-            var numberOfPageBreaksUntilPosition = Math.Floor((position - spaceToEndOfPage)/pageHeight) + 1;
-            var nextPage = spaceToEndOfPage + numberOfPageBreaksUntilPosition*pageHeight;
-            return new Pointer(this, position, nextPage, line);
+            var nextPageNumber = (position >= NextPage) ? pageNumber + 1 : pageNumber;
+            var nextPage = spaceToEndOfPage + nextPageNumber * pageHeight;
+            return new Pointer(nextPageNumber, pageHeight, spaceToEndOfPage, position, nextPage, line);
         }
 
         public Pointer ChangePageIfNeccessary(Unit position)

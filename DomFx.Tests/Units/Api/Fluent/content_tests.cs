@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Media;
 using DomFx.Api;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification;
@@ -78,6 +79,14 @@ namespace DomFx.Tests.Units.Api.Fluent
             public override void Init()
             {
                 Section().Content(content);
+            }
+        }
+
+        public class Header : ContentBase<int>
+        {
+            public override void Render()
+            {
+                Box().Height(10).BackgroundColor(Colors.Brown);
             }
         }
     }

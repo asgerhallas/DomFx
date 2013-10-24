@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using DomFx.Layouters;
 using DomFx.Renderers;
 using DomFx.Renderers.PdfSharp.WPF;
@@ -49,9 +50,11 @@ namespace DomFx.Tests.Integration
 
         protected void ShowWithiTextSharp()
         {
-            var process = Process.GetProcessesByName("AcroRd32").SingleOrDefault(x => x.MainWindowTitle.Contains("test_itextsharp.pdf"));
-            if (process != null)
+            foreach (var process in Process.GetProcessesByName("AcroRd32"))
+            {
                 process.CloseMainWindow();
+                Thread.Sleep(500);
+            }
 
             var memoryStream = new iTextSharpRenderer().Render(pages, 21.cm(), 29.7.cm());
             File.WriteAllBytes("test_itextsharp.pdf", memoryStream.ToArray());

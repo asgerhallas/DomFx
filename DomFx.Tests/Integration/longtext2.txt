@@ -1,0 +1,234 @@
+﻿Der er flere anlæg fordelt på loft og kælder i bygning A-E. Anlæg styres centralt via CTS anlæg.
+
+Taghus A.
+Der er monteret flere mekaniske ventilationsanlæg der ventilerer Bygning A. 
+
+Anlæg A10/A20-1. Hovedanlæg kontorer Bygning A.
+Aggregat er med forvarmeflade, befugter, køleflade og eftervarmeflade samt roterende veksler til genvinding.
+Ventilatorer er med frekvenstransformer.
+Fabrikat Novenco - Climaster.
+
+Anlæg A10/A21-2. Hovedanlæg kontorer Bygning A.
+Aggregat er med forvarmeflade, befugter, køleflade og eftervarmeflade samt roterende veksler til genvinding.
+Ventilatorer er med frekvenstransformer.
+Fabrikat Novenco - Climaster.
+
+Anlæg A12 I/U. Forsyner toiletgrupper.
+Aggregat er med varmeflade samt roterende veksler til genvinding.
+Ventilatorer er med frekvenstransformer.
+Fabrikat Novenco - Climaster.
+
+Anlæg A13/A24. Forsyner kontorer 4.sal.
+Aggregat er med forvarmeflade, befugter, køleflade og eftervarmeflade samt roterende veksler til genvinding.
+Ventilatorer er med frekvenstransformer.
+Der er flere zoner med separate varme og køleflader.
+Fabrikat Fläktwoods.
+
+Anlæg A30. Indblæsnings anlæg til taghus A.
+Anlæg er med ventilator og varmeflade for tempereret indblæsning. Luften bruges til opretholdelse af
+temperaturen på loftet til over 15 °C.
+
+Anlæg A-UL I/U. Mødelokaler.
+Aggregat er med varmeflade, køleflade samt roterende veksler til genvinding.
+Ventilatorer er med frekvenstransformer.
+Fabrikat FläktWoods.
+
+Taghus B.
+Der er monteret flere mekaniske ventilationsanlæg der ventilerer Bygning B. 
+
+Anlæg B10F10/B20F20-1. Hovedanlæg kontorer Bygning B og gangbroer.
+Aggregat er med forvarmeflade, befugter, køleflade og eftervarmeflade samt roterende veksler til genvinding.
+Ventilatorer er med frekvenstransformer.
+Fabrikat Novenco - Climaster.
+
+Anlæg B10/B21-2. Hovedanlæg kontorer Bygning B.
+Aggregat er med forvarmeflade, befugter, køleflade og eftervarmeflade samt roterende veksler til genvinding.
+Ventilatorer er med frekvenstransformer.
+Fabrikat Novenco - Climaster.
+
+Anlæg B11B12/B22B23. Forsyner toiletgrupper og thekøkkener.
+Aggregat er med varmeflade samt roterende veksler til genvinding.
+Ventilatorer er med frekvenstransformer.
+Fabrikat Novenco - Climaster.
+
+Anlæg B30. Indblæsnings anlæg til taghus B.
+Anlæg er med ventilator og varmeflade for tempereret indblæsning. Luften bruges til opretholdelse af
+temperaturen på loftet til over 15 °C.
+
+Anlæg B31. Borgerservice og call center.
+Aggregat er med varmeflade og køleflade samt modstrømsveksler til genvinding.
+Ventilatorer er med frekvenstransformer.
+Fabrikat Genvex.
+
+Anlæg B-UL I/U. Mødelokaler.
+Aggregat er med varmeflade samt roterende veksler til genvinding.
+Ventilatorer er med frekvenstransformer.
+Fabrikat Novenco - Climaster.
+
+Taghus C.
+Der er monteret flere mekaniske ventilationsanlæg der ventilerer Bygning C.
+
+Anlæg C1. Indsugning til friskluft kammer på taghus C.
+Er koblet sammen med C22 og F21 med væskekoblet batteri.
+Fabrikat Fläkt.
+
+Anlæg C10. Hovedanlæg kontorer Bygning C.
+Aggregat er med forvarmeflade, befugter og eftervarmeflade samt roterende veksler til genvinding.
+Fabrikat Novenco Climaster.
+
+Anlæg C11/C22. Forsyner toilet, køkken og rengøring i bygning 3
+C11 indblæsning får frisk luft via C1 og er monteret med varmeflade.
+C22 udsugning med varmegenvinding via væskekoblet batteri til C1.
+Fabrikat Fläkt.
+
+Anlæg F11/F21. Forsyner foyer.
+F11 indblæsning får frisk luft via C1 og er monteret med varmeflade.
+F22 udsugning med varmegenvinding via væskekoblet batteri til C1.
+Fabrikat Fläkt.
+
+Anlæg C30. Indblæsnings anlæg til taghus C.
+Anlæg er med ventilator og varmeflade for tempereret indblæsning. Luften bruges til opretholdelse af
+temperaturen på loftet til over 15 °C.
+
+Anlæg CULI-1. Mødelokaler bygning C.
+Aggregat er med varmeflade og køleflade samt modstrømsveksler til genvinding.
+Ventilatorer er med frekvenstransformer.
+Fabrikat Genvex.
+
+Anlæg CULI-2. Mødelokaler bygning C.
+Aggregat er med varmeflade og køleflade samt modstrømsveksler til genvinding.
+Ventilatorer er med frekvenstransformer.
+Fabrikat Genvex.
+
+Taghus D.
+Der er monteret flere mekaniske ventilationsanlæg der ventilerer Bygning D.
+
+Anlæg D1. Indsugning til friskluft kammer på taghus D.
+Er koblet sammen med D22 med væskekoblet batteri.
+Fabrikat Fläkt.
+
+Anlæg D10. Hovedanlæg kontorer Bygning D.
+Aggregat er med forvarmeflade, befugter og eftervarmeflade samt roterende veksler til genvinding.
+Fabrikat Fläkt.
+
+Anlæg D22. Udsugning fra køkken.
+Er koblet sammen med D1 med væskekoblet batteri.
+Fabrikat Fläkt.
+
+Anlæg D30. Indblæsnings anlæg til taghus D.
+Anlæg er med ventilator og varmeflade for tempereret indblæsning. Luften bruges til opretholdelse af
+temperaturen på loftet til over 15 °C.
+
+Anlæg D31. Reception.
+Aggregat er med køleflade samt krydsveksler til genvinding.
+Fabrikat Exhausto VEX 4,5.
+
+Taghus E.
+Der er monteret flere mekaniske ventilationsanlæg der ventilerer Bygning E.
+
+Anlæg E1. Indsugning til friskluft kammer på taghus E.
+Der er monteret varmeflade.
+Anlæg er koblet sammen med E20 og E21 med væskekoblet batteri.
+Fabrikat Fläkt.
+
+Anlæg E10. Hovedanlæg indblæsning kontorer Bygning E.
+Aggregat er med varmeflade, befugter samt genvindig via E1.
+Fabrikat Novenco Climaster.
+
+Anlæg E11. Toiletter Indblæsning af friskluft.
+Aggregat er med varmeflade, ingen genvinding.
+Fabrikat Fläkt.
+
+Anlæg E20. Hovedanlæg udsugning kontorer Bygning E.
+Udsugning med varmegenvinding via væskekoblet batteri til E1.
+Fabrikat Fläkt.
+
+Anlæg E21. Hovedanlæg udsugning kontorer Bygning E.
+Udsugning med varmegenvinding via væskekoblet batteri til E1.
+Fabrikat IV - Flexomix.
+
+Anlæg E22. Toiletter.
+Udsugning uden genvinding.
+Fabrikat Fläkt.
+
+Anlæg E30. Indblæsnings anlæg til taghus E.
+Anlæg er med ventilator og varmeflade for tempereret indblæsning. Luften bruges til opretholdelse af
+temperaturen på loftet til over 15 °C.
+
+Anlæg E-UL-U og E-UL-I. Ventilerer møderum i Bygning E.
+Anlæg er med varmeflade og uden genvinding.
+Fabrikat Fläkt.
+
+Enkelte separate exhausto udsugningsanlæg.
+
+Kælder
+
+Anlæg P1 - Indtag til flere anlæg i kælderen.
+Aggregat er med varmeflade, ingen genvinding.
+Fabrikat Fläkt.
+
+Anlæg P2 - Indtag til anlæg P13 og P15.
+Aggregat er med varmeflade, ingen genvinding.
+Fabrikat Fläkt.
+
+Anlæg P10 og P11.
+Indblæsnings ventilatorer der forsyner øvrige rum i kælderen.
+Fabrikat Exhausto.
+
+Anlæg P13 - Stueplan Indblæsning af friskluft.
+Aggregat er med varmeflade, køleflade og ingen genvinding.
+Fabrikat Fläkt.
+
+Anlæg P14 - Indblæsning nødgeneratorrum m.m.
+Aggregat er med varmeflade, køleflade og ingen genvinding.
+Fabrikat Novenco.
+
+Anlæg P15 - Stueplan Indblæsning af friskluft.
+Aggregat er med varmeflade, ingen genvinding.
+Fabrikat Fläkt.
+
+Anlæg P16 - Forsyner arkiver, postforsendelse, papirforvaltning m.fl..
+Indblæsning - Aggregat er med forvarmeflade, befugter og eftervarmeflade, herefter fordeles anlægget i 4 zoner.
+3 separate zoner efter anlæg er med varme og køleflade.
+1 Zone er med varmeflade.
+Udsugning sker ved anlæg P23, P24, P27, P28 og P29 der fordeler afkast på øvre og nedre parkeringskælder.  
+Fabrikat Fläkt.
+
+Anlæg P17 - Indblæsnings anlæg til P-Kælder.
+Anlæg er med ventilator og varmeflade for tempereret indblæsning i P-kælder.
+Fabrikat Novenco Climaster.
+
+Anlæg P18 - Forsyner mangefoldiggørelsescentralen.
+Indblæsning fordeles i 2 zoner med separat forvarmeflade, befugter, køleflade og eftervarmeflade.
+Fabrikat Danvent TC 30.
+
+Anlæg P19 - Frisk luft forsyning til varmecentral.
+Luften ledes gennem varmecentral inden den ledes ud i parkeringskælder.
+Fabrikat Fläktwoods. 
+
+Anlæg P27 - Udsugning Arkiv.
+Fabrikat Novenco Climaster.
+
+Anlæg P28 - Udsugning Arkiv.
+Fabrikat Novenco Climaster.
+
+Anlæg P29 - Udsugning Arkiv.
+Aggregat er med frekvensomformer.
+Fabrikat Novenco Climaster.
+
+Anlæg K10/K20 Forsyner Sikringsrum, beredskab.
+Aggregat er med forvarmeflade og eftervarmeflade samt genvinding ved kryds veksler.
+Anlæg er med frekvenstranformer.
+Fabrikat Novenco. 
+
+Anlæg K11/K24 Forsyner Depoter.
+Aggregat er med varme og køleflade samt genvinding ved roterende veksler.
+Fabrikat Novenco Climaster. 
+
+Anlæg K22 Indblæsnings anlæg til P-Kælder.
+Anlæg er med ventilator og varmeflade for tempereret indblæsning i P-kælder.
+Fabrikat Novenco Climaster.
+
+Anlæg K23 - Udsugning P-kælder.
+Aggregat er med frekvensomformer.
+Fabrikat Novenco Climaster.
