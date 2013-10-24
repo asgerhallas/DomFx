@@ -57,6 +57,30 @@ namespace DomFx.Tests.Integration
 
             ShowWithiTextSharp();
         }
+
+        [Fact]
+        public void end_of_text_is_missing_on_page2()
+        {
+            Setup(() =>
+            {
+                var manifestResourceStream = GetType().Assembly.GetManifestResourceStream("DomFx.Tests.Resources.DINOffc.ttf");
+                var readFully = ReadFully(manifestResourceStream);
+                var baseFont = BaseFont.CreateFont("DINOffc.ttf", BaseFont.CP1252, true, true, readFully, null);
+
+                Box().BackgroundColor(Colors.Beige);
+                
+                Text()
+                    .Clear()
+                    .Margins(1, 1, 1, 1)
+                    .Font(new iTextSharpFont(baseFont, 12, 12))
+                    .Text(File.ReadAllText("Integration\\longtext3.txt"))
+                    .Width(15);
+            });
+
+            Layout();
+
+            ShowWithiTextSharp();
+        }
         
         
         [Fact]

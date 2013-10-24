@@ -11,7 +11,7 @@ namespace DomFx.Layouters
     /// <summary>
     ///   Representation of smallest unit in a document
     /// </summary>
-    [DebuggerDisplay("{Name}, Top {Top}, Left {Left}")]
+    [DebuggerDisplay("{Name}, ViewportTop {ViewportTop}, Left {Left}")]
     public class LayoutedElement
     {
         readonly Children children;
@@ -147,17 +147,13 @@ namespace DomFx.Layouters
 
             var innerSpaceLeftBeforeSplit = spaceLeftBeforeSplit - Edge.TotalVertical;
 
-            var text = Specification as Text;
-            if (text != null)
-            {
-                var lineHeight = text.Font.CalculateLineHeight();
-                innerSpaceLeftBeforeSplit -= innerSpaceLeftBeforeSplit%lineHeight;
-            }
+            innerSpaceLeftBeforeSplit = TryCorrectSpaceLeftBeforeSplit(innerSpaceLeftBeforeSplit);
 
             var part2InnerHeightAfterSplit = InnerHeight - innerSpaceLeftBeforeSplit;
             if (part2InnerHeightAfterSplit < WidowHeight)
             {
                 innerSpaceLeftBeforeSplit = innerSpaceLeftBeforeSplit - (WidowHeight - part2InnerHeightAfterSplit);
+                innerSpaceLeftBeforeSplit = TryCorrectSpaceLeftBeforeSplit(innerSpaceLeftBeforeSplit);
                 part2InnerHeightAfterSplit = InnerHeight - innerSpaceLeftBeforeSplit;
             }
 
@@ -192,6 +188,19 @@ namespace DomFx.Layouters
             };
 
             return new Changed<LayoutedElement>(upper, lower);
+        }
+
+        // A text can only be split in parts equal to line height. 
+        // Correct the space so only a whole number of lines are left before the split
+        Unit TryCorrectSpaceLeftBeforeSplit(Unit innerSpaceLeftBeforeSplit)
+        {
+            var text = Specification as Text;
+            if (text != null)
+            {
+                var lineHeight = text.Font.CalculateLineHeight();
+                return innerSpaceLeftBeforeSplit - innerSpaceLeftBeforeSplit%lineHeight;
+            }
+            return innerSpaceLeftBeforeSplit;
         }
 
         string GenerateNextPartName(int part)

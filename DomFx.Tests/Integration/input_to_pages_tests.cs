@@ -50,10 +50,17 @@ namespace DomFx.Tests.Integration
 
         protected void ShowWithiTextSharp()
         {
-            foreach (var process in Process.GetProcessesByName("AcroRd32"))
+            while (true)
             {
-                process.CloseMainWindow();
-                Thread.Sleep(500);
+                var processes = Process.GetProcessesByName("AcroRd32").ToList();
+                if (!processes.Any())
+                    break;
+
+                foreach (var process in processes)
+                {
+                    process.CloseMainWindow();
+                    Thread.Sleep(100);
+                }
             }
 
             var memoryStream = new iTextSharpRenderer().Render(pages, 21.cm(), 29.7.cm());
