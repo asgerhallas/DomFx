@@ -50,7 +50,7 @@ namespace DomFx.Renderers.iTextSharp
 
         public Unit CalculateLineHeight()
         {
-            return Font.CalculatedSize.points();
+            return Unit.FromPoints(leading);
         }
     }
 }
