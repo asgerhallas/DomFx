@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Windows.Media;
 using DomFx.Api;
+using DomFx.Layouters;
 using DomFx.Layouters.Specification;
 using DomFx.Renderers.iTextSharp;
 using DomFx.Tests.Fakes;
@@ -74,6 +75,33 @@ namespace DomFx.Tests.Integration
                     .Margins(1, 1, 1, 1)
                     .Font(new iTextSharpFont(baseFont, 12, 12))
                     .Text(File.ReadAllText("Integration\\longtext3.txt"))
+                    .Width(15);
+            });
+
+            Layout();
+
+            ShowWithiTextSharp();
+        }
+        
+        [Fact]
+        public void end_of_text_is_missing_on_page3()
+        {
+            Setup(() =>
+            {
+                var manifestResourceStream = GetType().Assembly.GetManifestResourceStream("DomFx.Tests.Resources.DINOffc.ttf");
+                var readFully = ReadFully(manifestResourceStream);
+                var baseFont = BaseFont.CreateFont("DINOffc.ttf", BaseFont.CP1252, true, true, readFully, null);
+
+                var top = 1 + 2.9999996001228419;
+                Box().BackgroundColor(Colors.Red).Borders(top, 0, 1.7527777777777774, 0, Colors.Brown);
+
+                Box().BackgroundColor(Colors.Beige).Height(19.465832933456177-top);
+                End<Box>();
+
+                Text()
+                    .Clear()
+                    .Font(new iTextSharpFont(baseFont, 10, 13))
+                    .Text(File.ReadAllText("Integration\\longtext4.txt"))
                     .Width(15);
             });
 

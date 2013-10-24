@@ -118,8 +118,8 @@ namespace DomFx.Layouters
             if (result.OperationWasNotAllowed)
                 result = TryMove(position);
 
-            if (result.OperationWasNotAllowed)
-                result = TryKeepTogether(position, mayTryKeepTogether);
+            if (result.OperationWasNotAllowed && mayTryKeepTogether)
+                result = TryKeepTogether(position);
 
             if (result.OperationWasNotAllowed && forceIfNothingElseWorks)
                 result = TrySplit(position, fallBackToCrop: true);
@@ -196,9 +196,9 @@ namespace DomFx.Layouters
             return new Move<Line>(MoveTo(position.NextPage));
         }
 
-        StopOr<Change<Line>> TryKeepTogether(Pointer position, bool mayTryKeepTogether)
+        StopOr<Change<Line>> TryKeepTogether(Pointer position)
         {
-            if (position.PreviousLine != null && position.PreviousLine.KeepWithNextLine && mayTryKeepTogether)
+            if (position.PreviousLine != null && position.PreviousLine.KeepWithNextLine)
                 return new KeepTogether<Line>();
 
             return new Stop<Change<Line>>();

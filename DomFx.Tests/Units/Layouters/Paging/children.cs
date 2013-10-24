@@ -5,7 +5,6 @@ namespace DomFx.Tests.Units.Layouters.Paging
 {
     public class children : paging_tests
     {
-
         [Fact]
         public void unbreakable_element_with_breakable_child_will_not_break_but_crop()
         {
@@ -267,5 +266,34 @@ namespace DomFx.Tests.Units.Layouters.Paging
             Element(3).ShouldBeAt(page: 2, top: OfPage, height: 15.cm());
         }
 
+        [Fact]
+        public void moving_child_element_that_aligns_with_parent_element_top_will_move_parent_too()
+        {
+            Element(top: 5.cm(), breakable: true, children: new[]
+            {
+                ChildElement(innerHeight: 12.cm(), breakable: false)
+            });
+
+            LayoutWithPageHeight(15.cm());
+
+            Element(1).ShouldBeAt(page: 2, top: OfPage, height: 12.cm());
+            Element(2).ShouldBeAt(page: 2, top: OfPage, height: 12.cm());
+        }
+
+        [Fact]
+        public void moving_child_element_that_aligns_with_parent_element_top_will_move_parent_too_2()
+        {
+            Element(top: 5.cm(), breakable: true, children: new[]
+            {
+                ChildElement(innerHeight: 6.cm(), breakable: false, keepWithNextLine: true),
+                ChildElement(innerHeight: 6.cm(), breakable: false),
+            });
+
+            LayoutWithPageHeight(15.cm());
+
+            Element(1).ShouldBeAt(page: 2, top: OfPage, height: 12.cm());
+            Element(2).ShouldBeAt(page: 2, top: OfPage, height: 6.cm());
+            Element(3).ShouldBeAt(page: 2, top: 6.cm(), height: 6.cm());
+        }
     }
 }

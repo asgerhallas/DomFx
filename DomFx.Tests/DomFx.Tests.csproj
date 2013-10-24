@@ -61,6 +61,12 @@
   <ItemGroup>
     <Compile Include="Fakes\TestBehaviors.cs" />
     <Compile Include="Fakes\TestFont.cs" />
+    <Content Include="Integration\longtext5.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Integration\longtext4.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Integration\longtext3.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
