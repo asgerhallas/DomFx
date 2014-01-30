@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomFx.Layouters", "DomFx.Layouters\DomFx.Layouters.csproj", "{4C01A9E0-29FB-4A47-9B6B-86FA83549B77}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomFx.Api", "DomFx.Api\DomFx.Api.csproj", "{349B31F1-BF5A-4A18-9A65-FBE1AE6BF74A}"
@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{54AE97
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomFx.Api.Builder", "DomFx.Api.Builder\DomFx.Api.Builder.csproj", "{F07E576B-028F-4ADD-B394-AA1D7750A406}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +91,16 @@ Global
 		{B708341A-1813-4619-8670-AE7D3EAC5B64}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B708341A-1813-4619-8670-AE7D3EAC5B64}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{B708341A-1813-4619-8670-AE7D3EAC5B64}.Release|x86.ActiveCfg = Release|Any CPU
+		{F07E576B-028F-4ADD-B394-AA1D7750A406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F07E576B-028F-4ADD-B394-AA1D7750A406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F07E576B-028F-4ADD-B394-AA1D7750A406}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F07E576B-028F-4ADD-B394-AA1D7750A406}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F07E576B-028F-4ADD-B394-AA1D7750A406}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F07E576B-028F-4ADD-B394-AA1D7750A406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F07E576B-028F-4ADD-B394-AA1D7750A406}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F07E576B-028F-4ADD-B394-AA1D7750A406}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F07E576B-028F-4ADD-B394-AA1D7750A406}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F07E576B-028F-4ADD-B394-AA1D7750A406}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

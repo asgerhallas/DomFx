@@ -8,7 +8,7 @@ namespace DomFx.Layouters.Specification
         public Margins Margins { get; set; }
         readonly IEnumerable<ElementSpecification> elements;
 
-        public Content(IEnumerable<ElementSpecification> elements, Margins margins)
+        public Content(Margins margins, IEnumerable<ElementSpecification> elements)
         {
             Margins = margins;
             this.elements = elements;
@@ -16,10 +16,7 @@ namespace DomFx.Layouters.Specification
 
         public static Content Empty
         {
-            get
-            {
-                return new Content(Enumerable.Empty<ElementSpecification>(), Margins.None());
-            }
+            get { return new Content(Margins.None(), Enumerable.Empty<ElementSpecification>()); }
         }
 
         public IEnumerable<ElementSpecification> Elements

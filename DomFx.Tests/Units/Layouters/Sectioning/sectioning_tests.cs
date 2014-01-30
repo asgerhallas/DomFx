@@ -17,9 +17,8 @@ namespace DomFx.Tests.Units.Layouters.Sectioning
                                   Content footer = null,
                                   Content content = null)
         {
-            var section = new Section(content ?? DomFx.Layouters.Specification.Content.Empty,
-                                      header ?? DomFx.Layouters.Specification.Content.Empty,
-                                      footer ?? DomFx.Layouters.Specification.Content.Empty);
+            var section = new Section(header ?? DomFx.Layouters.Specification.Content.Empty,
+                                      content ?? DomFx.Layouters.Specification.Content.Empty, footer ?? DomFx.Layouters.Specification.Content.Empty);
 
             sections.Add(section);
             return section;
@@ -28,7 +27,7 @@ namespace DomFx.Tests.Units.Layouters.Sectioning
         protected Content Content(Unit border = default(Unit),
                                   IEnumerable<ElementSpecification> elements = null)
         {
-            var content = new Content(elements, new Margins { Bottom = border, Left = border, Right = border, Top = border });
+            var content = new Content(new Margins { Bottom = border, Left = border, Right = border, Top = border }, elements);
             return content;
         }
 

@@ -56,7 +56,7 @@ namespace DomFx.Api
 
         public Section Render()
         {
-            return new Section(contentBuilder.Render(), headerBuilder.Render(), footerBuilder.Render());
+            return new Section(headerBuilder.Render(), contentBuilder.Render(), footerBuilder.Render());
         }
     }
 
@@ -74,7 +74,7 @@ namespace DomFx.Api
     {
         public Content Render()
         {
-            return new Content(Enumerable.Empty<ElementSpecification>(), Margins.None());
+            return new Content(Margins.None(), Enumerable.Empty<ElementSpecification>());
         }
     }
 
@@ -146,7 +146,7 @@ namespace DomFx.Api
             if (content.RenderIf())
                 content.Render();
 
-            return new Content(contentContext.RootElements, margin);
+            return new Content(margin, contentContext.RootElements);
         }
     }
 }

@@ -10,10 +10,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DomFx.Tests</RootNamespace>
     <AssemblyName>DomFx.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\DomFx\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,6 +33,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="itextsharp, Version=5.1.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
@@ -91,6 +94,7 @@
     <Compile Include="Integration\InfiniteTests.cs" />
     <Compile Include="Fakes\TestStyle.cs" />
     <Compile Include="Units\Api\Fluent\text.cs" />
+    <Compile Include="Units\Api\NewFolder1\Toc.cs" />
     <Compile Include="Units\Layouters\Paging\layouted_element.cs" />
     <Compile Include="Units\Layouters\Specification\image.cs" />
     <Compile Include="Fakes\TestImageSource.cs" />
@@ -114,6 +118,10 @@
     <Compile Include="Units\UnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DomFx.Api.Builder\DomFx.Api.Builder.csproj">
+      <Project>{f07e576b-028f-4add-b394-aa1d7750a406}</Project>
+      <Name>DomFx.Api.Builder</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DomFx.Api\DomFx.Api.csproj">
       <Project>{349B31F1-BF5A-4A18-9A65-FBE1AE6BF74A}</Project>
       <Name>DomFx.Api</Name>
