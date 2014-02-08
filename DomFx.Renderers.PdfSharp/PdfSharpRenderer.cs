@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.Element;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 
@@ -34,7 +35,7 @@ namespace DomFx.Renderers.PdfSharp.WPF
                 {
                     borderRenderer.Render(canvas, element);
                     
-                    if (element.Specification is Backgrounded)
+                    if (element.Specification is IBackgrounded)
                         backgroundRenderer.Render(canvas, element);
 
                     if (element.Specification is Image)

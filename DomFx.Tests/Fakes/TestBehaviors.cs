@@ -3,9 +3,9 @@ using DomFx.Layouters.Specification;
 
 namespace DomFx.Tests.Fakes
 {
-    public class TestBehaviors : Behaviors
+    public class TestBehaviors : CompositeBehavior
     {
-        public TestBehaviors(params Behavior[] behaviors) : base(behaviors)
+        public TestBehaviors(params IBehavior[] behaviors) : base(behaviors)
         {
         }
     }

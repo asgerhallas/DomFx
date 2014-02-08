@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.Element;
 
 namespace DomFx.Api
 {
@@ -60,7 +61,7 @@ namespace DomFx.Api
             set { reportData = value; }
         }
 
-        protected void End<T>() where T : ElementSpecification
+        protected void End<T>() where T : IElement
         {
             Context.End<T>();
         }

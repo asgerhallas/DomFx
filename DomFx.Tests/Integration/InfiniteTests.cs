@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.Element;
+using DomFx.Layouters.Specification.Style;
 using Xunit;
 using Shouldly;
 
@@ -9,7 +11,7 @@ namespace DomFx.Tests.Integration
 {
     public class InfiniteTests
     {
-        IEnumerable<ElementSpecification> NeverEndingStory()
+        IEnumerable<IElement> NeverEndingStory()
         {
             while (true)
                 yield return new Box

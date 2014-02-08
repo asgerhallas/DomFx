@@ -1,5 +1,6 @@
 using DomFx.Layouters;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.Element;
 
 namespace DomFx.Api
 {
@@ -14,12 +15,12 @@ namespace DomFx.Api
             this.standardUnit = standardUnit;
         }
 
-        Backgrounded BackgroundedElementSpecificationBuilder<BoxSpecificationBuilder>.Element
+        IBackgrounded BackgroundedElementSpecificationBuilder<BoxSpecificationBuilder>.Element
         {
             get { return element; }
         }
 
-        ElementSpecification ElementSpecificationBuilder<BoxSpecificationBuilder>.Element
+        IElement ElementSpecificationBuilder<BoxSpecificationBuilder>.Element
         {
             get { return element; }
         }

@@ -1,8 +1,9 @@
 using DomFx.Layouters.Behaviors;
+using DomFx.Layouters.Specification.Element;
 
 namespace DomFx.Layouters.Specification
 {
-    public class ImageBehavior : Behaviors.Behaviors
+    public class ImageBehavior : CompositeBehavior
     {
         public ImageBehavior(Image specification)
             : base(new MaintainHeightAspectRatioBehavior(specification),

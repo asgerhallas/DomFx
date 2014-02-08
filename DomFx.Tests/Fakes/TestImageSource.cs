@@ -3,7 +3,7 @@ using DomFx.Layouters.Specification;
 
 namespace DomFx.Tests.Fakes
 {
-    public class TestImageSource : ImageSource
+    public class TestImageSource : IImageSource
     {
         readonly Unit width;
         readonly Unit height;

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.Element;
 
 namespace DomFx.Layouters.Behaviors
 {

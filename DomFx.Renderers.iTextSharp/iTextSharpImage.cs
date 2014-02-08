@@ -6,7 +6,7 @@ using Image = iTextSharp.text.Image;
 
 namespace DomFx.Renderers.iTextSharp
 {
-    public class iTextSharpImage : ImageSource
+    public class iTextSharpImage : IImageSource
     {
         readonly Image source;
 

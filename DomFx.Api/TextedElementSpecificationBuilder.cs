@@ -4,6 +4,6 @@ namespace DomFx.Api
 {
     public interface TextedElementSpecificationBuilder<in TSelf>
     {
-        Texted Element { get; }
+        ITexted Element { get; }
     }
 }

@@ -1,5 +1,6 @@
 using DomFx.Layouters;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.Element;
 using PdfSharp.Drawing;
 
 namespace DomFx.Renderers.PdfSharp.WPF

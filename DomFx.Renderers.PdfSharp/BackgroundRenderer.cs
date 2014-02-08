@@ -9,7 +9,7 @@ namespace DomFx.Renderers.PdfSharp.WPF
     {
         public void Render(XGraphics gfx, FixedElement element)
         {
-            var spec = (Backgrounded) element.Specification;
+            var spec = (IBackgrounded) element.Specification;
 
             if (spec.BackgroundColor != Colors.Transparent)
             {

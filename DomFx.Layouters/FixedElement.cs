@@ -1,4 +1,5 @@
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.Element;
 
 namespace DomFx.Layouters
 {
@@ -27,7 +28,7 @@ namespace DomFx.Layouters
         }
 
         public string Name { get; private set; }
-        public ElementSpecification Specification { get; private set; }
+        public IElement Specification { get; private set; }
 
         public FixedBox VisiblePartOfSpecification { get; private set; }
         public FixedBox InnerBoxBeforeSplitOrCrop { get; private set; }

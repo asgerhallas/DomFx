@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using DomFx.Layouters.Behaviors;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.Element;
+using DomFx.Layouters.Specification.Style;
 
 namespace DomFx.Layouters
 {
@@ -23,12 +25,12 @@ namespace DomFx.Layouters
             this.containerInnerHeight = containerInnerHeight;
         }
 
-        public static IEnumerable<Line> Layout(IEnumerable<ElementSpecification> elements, Unit pageWidth)
+        public static IEnumerable<Line> Layout(IEnumerable<IElement> elements, Unit pageWidth)
         {
             return new LiningLayouter(pageWidth, 0.cm()).PositionElements(elements);
         }
 
-        IEnumerable<Line> PositionElements(IEnumerable<ElementSpecification> elements)
+        IEnumerable<Line> PositionElements(IEnumerable<IElement> elements)
         {
             var elementsInLine = new List<LayoutedElement>();
             var lineWidth = 0.cm();
@@ -37,7 +39,7 @@ namespace DomFx.Layouters
             foreach (var element in elements)
             {
                 var breakBeforeThisElement = false;
-                element.Behavior.Apply<WidthBehavior>(element);
+                element.Behavior.Apply<IWidthBehavior>(element);
 
                 var layoutedElement = LayoutElement(element);
 
@@ -88,7 +90,7 @@ namespace DomFx.Layouters
                 yield return GetLine(lineWidth, elementsInLine, lineTop, keepWithNextLine);
         }
 
-        LayoutedElement LayoutElement(ElementSpecification element)
+        LayoutedElement LayoutElement(IElement element)
         {
             var hasDefinedWidth = element.InnerWidth != Unit.Undefined;
             var hasDefinedHeight = element.InnerHeight != Unit.Undefined;

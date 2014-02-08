@@ -1,4 +1,5 @@
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.Element;
 
 namespace DomFx.Layouters.Behaviors
 {
@@ -11,7 +12,7 @@ namespace DomFx.Layouters.Behaviors
             this.specification = specification;
         }
 
-        protected override Unit CalculateWidth(ElementSpecification element)
+        protected override Unit CalculateWidth(IElement element)
         {
             if (element.InnerHeight.IsDefined)
                 return specification.Source.Width * (element.InnerHeight / specification.Source.Height);

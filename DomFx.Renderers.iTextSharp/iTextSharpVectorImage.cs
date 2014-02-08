@@ -7,7 +7,7 @@ using Image = iTextSharp.text.Image;
 
 namespace DomFx.Renderers.iTextSharp
 {
-    public class iTextSharpVectorImage : ImageSource
+    public class iTextSharpVectorImage : IImageSource
     {
         readonly byte[] source;
 

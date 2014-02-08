@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Windows.Media;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.Style;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 

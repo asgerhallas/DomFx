@@ -9,7 +9,7 @@ namespace DomFx.Renderers.Html
     {
         public void Render(XElement canvas, FixedElement element)
         {
-            var spec = (Backgrounded)element.Specification;
+            var spec = (IBackgrounded)element.Specification;
 
             var styles = new Dictionary<string, string>
             {

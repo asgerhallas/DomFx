@@ -42,13 +42,16 @@
     <Compile Include="Generator\Composer.cs" />
     <Compile Include="Generator\CompositeBuilder.cs" />
     <Compile Include="Generator\ConditionalBuilder.cs" />
+    <Compile Include="Generator\ContentBuilder.cs" />
     <Compile Include="Generator\DocumentBuilder.cs" />
     <Compile Include="Generator\EnumeratingBuilder.cs" />
     <Compile Include="Generator\IBuilder.cs" />
     <Compile Include="Generator\IBuilderCommand.cs" />
     <Compile Include="Generator\IProjection.cs" />
     <Compile Include="Generator\ISpecification.cs" />
+    <Compile Include="Generator\IStyle.cs" />
     <Compile Include="Generator\NullBuilder.cs" />
+    <Compile Include="Generator\SectionBuilder.cs" />
     <Compile Include="Generator\TransformationBuilder.cs" />
     <Compile Include="IProjection.cs" />
     <Compile Include="ISpecification.cs" />

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.DocumentStructure;
+using DomFx.Layouters.Specification.Element;
+using DomFx.Layouters.Specification.Style;
 
 namespace DomFx.Api.Builder.Generator
 {
@@ -26,11 +28,11 @@ namespace DomFx.Api.Builder.Generator
 
         public static IBuilder<TSource, Content> Content<TSource>(
             Margins margins = null,
-            IBuilder<TSource, ElementSpecification> builder = null)
+            IBuilder<TSource, IElement> builder = null)
         {
             return new ContentBuilder<TSource>(
                 margins ?? Margins.None(),
-                builder ?? new NullBuilder<TSource, ElementSpecification>());
+                builder ?? new NullBuilder<TSource, IElement>());
         }
 
         public static IBuilder<TSource, TResult> Compose<TSource, TResult>(

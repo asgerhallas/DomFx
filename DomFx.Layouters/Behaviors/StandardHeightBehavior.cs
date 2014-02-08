@@ -1,6 +1,6 @@
 namespace DomFx.Layouters.Behaviors
 {
-    public abstract class StandardHeightBehavior : HeightBehavior
+    public abstract class StandardHeightBehavior : IHeightBehavior
     {
         public void Behave(LayoutedElement element)
         {

@@ -11,7 +11,7 @@ namespace DomFx.Renderers.iTextSharp
     {
         public void Render(PdfWriter writer, FixedElement element)
         {
-            var spec = (Backgrounded) element.Specification;
+            var spec = (IBackgrounded) element.Specification;
 
             if (spec.BackgroundColor == Colors.Transparent)
                 return;

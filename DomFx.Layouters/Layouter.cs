@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.DocumentStructure;
 
 namespace DomFx.Layouters
 {

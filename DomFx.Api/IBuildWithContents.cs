@@ -2,6 +2,9 @@
 using System.Linq;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.DocumentStructure;
+using DomFx.Layouters.Specification.Element;
+using DomFx.Layouters.Specification.Style;
 
 namespace DomFx.Api
 {
@@ -74,7 +77,7 @@ namespace DomFx.Api
     {
         public Content Render()
         {
-            return new Content(Margins.None(), Enumerable.Empty<ElementSpecification>());
+            return new Content(Margins.None(), Enumerable.Empty<IElement>());
         }
     }
 

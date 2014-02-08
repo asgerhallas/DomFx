@@ -1,5 +1,6 @@
 using DomFx.Layouters;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.Style;
 
 namespace DomFx.Tests.Fakes
 {

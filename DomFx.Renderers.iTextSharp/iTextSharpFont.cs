@@ -1,11 +1,11 @@
 using DomFx.Layouters;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-using Font = DomFx.Layouters.Specification.Font;
+using Font = DomFx.Layouters.Specification.Style.Font;
 
 namespace DomFx.Renderers.iTextSharp
 {
-    public class iTextSharpFont : Font
+    public class iTextSharpFont : Layouters.Specification.Style.Font
     {
         readonly double leading;
 

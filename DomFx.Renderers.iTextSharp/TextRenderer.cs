@@ -1,9 +1,12 @@
 using System.Globalization;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.Element;
+using DomFx.Layouters.Specification.Style;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Color = System.Drawing.Color;
+using Element = iTextSharp.text.Element;
 using Font = iTextSharp.text.Font;
 
 namespace DomFx.Renderers.iTextSharp
@@ -12,7 +15,7 @@ namespace DomFx.Renderers.iTextSharp
     {
         public void Render(PdfWriter writer, FixedElement element)
         {
-            var spec = (Texted) element.Specification;
+            var spec = (ITexted) element.Specification;
             var columnText = new ColumnText(writer.DirectContent)
             {
                 Leading = (float) ((iTextSharpFont) spec.Font).Leading,

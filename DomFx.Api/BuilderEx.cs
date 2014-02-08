@@ -1,7 +1,7 @@
 using System.Windows.Media;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification;
-using ImageSource = DomFx.Layouters.Specification.ImageSource;
+using DomFx.Layouters.Specification.Style;
 
 namespace DomFx.Api
 {
@@ -99,7 +99,7 @@ namespace DomFx.Api
             return builder;
         }
 
-        public static T Source<T>(this T builder, ImageSource source) where T : ImagedElementSpecificationBuilder<T>
+        public static T Source<T>(this T builder, IImageSource source) where T : ImagedElementSpecificationBuilder<T>
         {
             builder.Element.Source = source;
             return builder;

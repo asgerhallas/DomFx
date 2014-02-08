@@ -2,6 +2,8 @@ using System.Windows.Media;
 using DomFx.Api;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.Element;
+using DomFx.Layouters.Specification.Style;
 using DomFx.Tests.Fakes;
 using Shouldly;
 using Xunit;

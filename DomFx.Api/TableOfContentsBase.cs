@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DomFx.Layouters;
+using DomFx.Layouters.Specification.DocumentStructure;
 
 namespace DomFx.Api
 {
@@ -27,10 +28,10 @@ namespace DomFx.Api
             get { return standardUnit; }
         }
 
-        public Layouters.Specification.Document Build()
+        public Document Build()
         {
             Init();
-            return new Layouters.Specification.Document(sectionBuilders.Select(x => x.Render()));
+            return new Document(sectionBuilders.Select(x => x.Render()));
         }
 
         public abstract void Init();

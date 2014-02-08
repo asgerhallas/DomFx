@@ -5,6 +5,7 @@ using System.Linq;
 using DomFx.Layouters.Actions;
 using DomFx.Layouters.Behaviors;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.Element;
 
 namespace DomFx.Layouters
 {
@@ -15,15 +16,16 @@ namespace DomFx.Layouters
     public class LayoutedElement
     {
         readonly Children children;
-        readonly ElementSpecification specification;
+        readonly IElement specification;
 
-        public LayoutedElement(ElementSpecification specification, Children children)
+        public LayoutedElement(IElement specification, Children children)
         {
+            Name = specification.Name;
             this.specification = specification;
             this.children = children;
         }
 
-        LayoutedElement(ElementSpecification specification, IEnumerable<Line> children)
+        LayoutedElement(IElement specification, IEnumerable<Line> children)
             : this(specification, new Children(children))
         {
         }
@@ -39,7 +41,7 @@ namespace DomFx.Layouters
         {
             get
             {
-                Specification.Behavior.Apply<HeightBehavior>(this);
+                Specification.Behavior.Apply<IHeightBehavior>(this);
                 return ForcedInnerHeight.IsDefined ? ForcedInnerHeight : children.OuterHeight;
             }
         }
@@ -93,7 +95,7 @@ namespace DomFx.Layouters
             get { return Specification.Edge; }
         }
 
-        public ElementSpecification Specification
+        public IElement Specification
         {
             get { return specification; }
         }

@@ -1,5 +1,6 @@
 using DomFx.Layouters;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.Element;
 using PdfSharp.Drawing;
 
 namespace DomFx.Renderers.PdfSharp.WPF
@@ -39,7 +40,7 @@ namespace DomFx.Renderers.PdfSharp.WPF
 
             //var y = element.InnerTop.Points;
             //var lineHeight = 0.cm();
-            //foreach (var lineFromText in ((TextBehavior)specification.Behavior).GetLines(specification.TextContent, specification.Font, element.InnerWidth))
+            //foreach (var lineFromText in ((TextBehavior)specification.IBehavior).GetLines(specification.TextContent, specification.Font, element.InnerWidth))
             //{
             //    if (lineHeight < element.ViewportTop || (element.ViewportBottom != 0.cm() && lineHeight > element.ViewportBottom))
             //    {

@@ -5,6 +5,8 @@ using System.Windows.Media;
 using DomFx.Api;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.DocumentStructure;
+using DomFx.Layouters.Specification.Element;
 
 namespace DomFx.Tests.Units.Api.Fluent
 {
@@ -34,7 +36,7 @@ namespace DomFx.Tests.Units.Api.Fluent
             setupContent();
         }
 
-        protected TSpec Specification<TSpec>(string name) where TSpec : ElementSpecification
+        protected TSpec Specification<TSpec>(string name) where TSpec : IElement
         {
             return (TSpec) Specification(name);
         }
@@ -44,7 +46,7 @@ namespace DomFx.Tests.Units.Api.Fluent
             var noop = document.Sections.Single().Content.Elements.ToList();
         }
 
-        protected ElementSpecification Specification(string name)
+        protected IElement Specification(string name)
         {
             var element = Specification(document.Sections.Single().Content.Elements, name);
             if (element == null)
@@ -53,7 +55,7 @@ namespace DomFx.Tests.Units.Api.Fluent
             return element;
         }
 
-        ElementSpecification Specification(IEnumerable<ElementSpecification> elements, string name)
+        IElement Specification(IEnumerable<IElement> elements, string name)
         {
             foreach (var element in elements)
             {

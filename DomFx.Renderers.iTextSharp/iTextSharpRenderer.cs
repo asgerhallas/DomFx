@@ -39,13 +39,13 @@ namespace DomFx.Renderers.iTextSharp
                 {
                     borderRenderer.Render(writer, element);
 
-                    if (element.Specification is Backgrounded)
+                    if (element.Specification is IBackgrounded)
                         backgroundRenderer.Render(writer, element);
 
-                    if (element.Specification is Imaged)
+                    if (element.Specification is IImaged)
                         imageRenderer.Render(writer, element);
 
-                    if (element.Specification is Texted)
+                    if (element.Specification is ITexted)
                         textRenderer.Render(writer, element);
                 }
                 currentPageNumber++;

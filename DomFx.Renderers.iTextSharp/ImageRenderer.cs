@@ -10,7 +10,7 @@ namespace DomFx.Renderers.iTextSharp
     {
         public void Render(PdfWriter writer, FixedElement element)
         {
-            var spec = (Imaged) element.Specification;
+            var spec = (IImaged) element.Specification;
 
             var image = GetImage(writer, spec);
 
@@ -23,7 +23,7 @@ namespace DomFx.Renderers.iTextSharp
             directContent.AddTemplate(template, (float)element.InnerBox.Left.Points, (float)(writer.PageSize.Height - element.InnerBox.Bottom.Points));
         }
 
-        static Image GetImage(PdfWriter writer, Imaged spec)
+        static Image GetImage(PdfWriter writer, IImaged spec)
         {
             if (spec.Source is iTextSharpImage)
             {

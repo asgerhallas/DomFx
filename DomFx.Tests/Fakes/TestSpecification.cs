@@ -1,18 +1,14 @@
 using System.Collections.Generic;
-using DomFx.Layouters.Specification;
+using System.Linq;
+using DomFx.Layouters.Specification.Element;
 
 namespace DomFx.Tests.Fakes
 {
-    public class TestSpecification : ElementSpecificationAbstract
+    public class TestSpecification : Box
     {
-        public TestSpecification(IEnumerable<ElementSpecification> children)
-            : base(children)
-        {
-        }
-
-        public TestSpecification()
-            : this(new List<ElementSpecification>())
-        {
-        }
+        public TestSpecification() { }
+        public TestSpecification(string name) : this(name, Enumerable.Empty<IElement>()) { }
+        public TestSpecification(IEnumerable<IElement> children) : base(null, children) { }
+        public TestSpecification(string name, IEnumerable<IElement> children) : base(name, children) { }
     }
 }

@@ -4,6 +4,6 @@ namespace DomFx.Api
 {
     public interface BackgroundedElementSpecificationBuilder<in TSelf>
     {
-        Backgrounded Element { get; }
+        IBackgrounded Element { get; }
     }
 }

@@ -6,7 +6,7 @@ using PdfSharp.Drawing;
 
 namespace DomFx.Renderers.PdfSharp.WPF
 {
-    public class PdfSharpImage : ImageSource
+    public class PdfSharpImage : IImageSource
     {
         readonly XImage source;
 

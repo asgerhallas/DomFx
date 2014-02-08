@@ -1,6 +1,7 @@
 using DomFx.Api;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.Element;
 using DomFx.Renderers.PdfSharp.WPF;
 using DomFx.Tests.Fakes;
 using Shouldly;

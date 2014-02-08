@@ -1,5 +1,6 @@
 using DomFx.Api;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.Element;
 using DomFx.Renderers.PdfSharp.WPF;
 using Shouldly;
 using Xunit;
