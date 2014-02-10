@@ -10,7 +10,7 @@ namespace DomFx.Layouters.Specification.DocumentStructure
         {
             this.sections = sections;
         }
-        
+
         public IEnumerable<Section> Sections
         {
             get { return sections; }

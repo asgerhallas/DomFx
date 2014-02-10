@@ -7,9 +7,8 @@ using DomFx.Layouters;
 using DomFx.Renderers;
 using DomFx.Renderers.PdfSharp.WPF;
 using DomFx.Renderers.iTextSharp;
-using DomFx.Tests.Units;
+using DomFx.Tests.Api.Fluent;
 using DomFx.Tests.Units.Api;
-using DomFx.Tests.Units.Api.Fluent;
 
 namespace DomFx.Tests.Integration
 {

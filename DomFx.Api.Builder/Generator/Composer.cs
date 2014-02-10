@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using DomFx.Layouters.Specification;
+using DomFx.Layouters;
 using DomFx.Layouters.Specification.DocumentStructure;
 using DomFx.Layouters.Specification.Element;
 using DomFx.Layouters.Specification.Style;
@@ -8,6 +8,13 @@ namespace DomFx.Api.Builder.Generator
 {
     public abstract class Composer<T>
     {
+        readonly UnitOfMeasure unitOfMeasure;
+
+        protected Composer(UnitOfMeasure unitOfMeasure)
+        {
+            this.unitOfMeasure = unitOfMeasure;
+        }
+
         public abstract IBuilder<T, Document> Compose();
 
         public static IBuilder<TSource, Document> Document<TSource>(IBuilder<TSource, Section> builder)
@@ -59,6 +66,11 @@ namespace DomFx.Api.Builder.Generator
             IBuilder<IEnumerable<TCollection>, TResult> builder)
         {
             return new TransformationBuilder<TSource, TCollection, TResult>(projection, builder);
+        }
+
+        public static IBuilder<TSource, TResult> Null<TSource, TResult>()
+        {
+            return new NullBuilder<TSource, TResult>();
         }
     }
 }

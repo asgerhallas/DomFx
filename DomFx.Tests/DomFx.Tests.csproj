@@ -79,50 +79,38 @@
     <Content Include="Integration\longtext2.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Compile Include="Integration\InputToPagesTests.cs" />
     <Compile Include="Fakes\TestPdfSharpFont.cs" />
-    <Compile Include="Integration\Tryouts2.cs" />
     <Compile Include="Fakes\TestSpecification.cs" />
-    <Compile Include="Units\Api\Fluent\background.cs" />
-    <Compile Include="Units\Api\Fluent\content_tests.cs" />
-    <Compile Include="Units\Api\Fluent\image.cs" />
-    <Compile Include="Units\Api\Fluent\element_specification.cs" />
-    <Compile Include="Units\Api\Fluent\simple.cs" />
-    <Compile Include="Integration\Bugs2.cs" />
-    <Compile Include="Units\Api\Fluent\table_of_content_tests.cs" />
-    <Compile Include="Units\Api\Fluent\section.cs" />
-    <Compile Include="Integration\InfiniteTests.cs" />
     <Compile Include="Fakes\TestStyle.cs" />
-    <Compile Include="Units\Api\Fluent\text.cs" />
-    <Compile Include="Units\Api\Builder\Toc.cs" />
-    <Compile Include="Units\Layouters\Paging\LayoutedElementTests.cs" />
-    <Compile Include="Units\Layouters\Specification\Image2.cs" />
+    <Compile Include="Api\Builder\Toc.cs" />
+    <Compile Include="Integration\Bugs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Integration\IntegrationTestsBase.cs" />
+    <Compile Include="Layouters\Paging\LayoutedElementTests.cs" />
+    <Compile Include="Layouters\Specification\ImageTests.cs" />
     <Compile Include="Fakes\TestImageSource.cs" />
-    <Compile Include="Units\Layouters\Lining\Children2.cs" />
-    <Compile Include="Units\ElementNotFoundException.cs" />
-    <Compile Include="Units\Layouters\Lining\ElementWidth.cs" />
-    <Compile Include="Units\Layouters\Lining\LiningTests.cs" />
-    <Compile Include="Units\Layouters\Lining\Simple2.cs" />
-    <Compile Include="Units\Layouters\Paging\Children2.cs" />
-    <Compile Include="Units\Layouters\Paging\ElementHeight.cs" />
-    <Compile Include="Units\Layouters\Paging\Lines2.cs" />
-    <Compile Include="Units\Layouters\Paging\PagingTests.cs" />
-    <Compile Include="Units\Layouters\Paging\Simple2.cs" />
+    <Compile Include="Layouters\Lining\ChildrenTests.cs" />
+    <Compile Include="ElementNotFoundException.cs" />
+    <Compile Include="Layouters\Lining\ElementWidthTests.cs" />
+    <Compile Include="Layouters\LiningTestsBase.cs" />
+    <Compile Include="Layouters\Lining\SimpleTests.cs" />
+    <Compile Include="Layouters\Paging\ChildrenTests.cs" />
+    <Compile Include="Layouters\Paging\ElementHeightTests.cs" />
+    <Compile Include="Layouters\Paging\LinesTests.cs" />
+    <Compile Include="Layouters\PagingTestsBase.cs" />
+    <Compile Include="Layouters\Paging\Simple.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Fakes\TestHeightBehavior.cs" />
-    <Compile Include="Units\Layouters\Sectioning\SectioningTests.cs" />
-    <Compile Include="Units\Layouters\Sectioning\Simple2.cs" />
-    <Compile Include="Units\Renderers\iTextSharp\RendererTests.cs" />
-    <Compile Include="Units\UnitTests.cs" />
+    <Compile Include="Layouters\SectioningTestsBase.cs" />
+    <Compile Include="Layouters\Sectioning\SimpleTests.cs" />
+    <Compile Include="Renderers\iTextSharp\RendererTests.cs" />
+    <Compile Include="UnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DomFx.Api.Builder\DomFx.Api.Builder.csproj">
       <Project>{f07e576b-028f-4add-b394-aa1d7750a406}</Project>
       <Name>DomFx.Api.Builder</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DomFx.Api\DomFx.Api.csproj">
-      <Project>{349B31F1-BF5A-4A18-9A65-FBE1AE6BF74A}</Project>
-      <Name>DomFx.Api</Name>
     </ProjectReference>
     <ProjectReference Include="..\DomFx.Layouters\DomFx.Layouters.csproj">
       <Project>{4C01A9E0-29FB-4A47-9B6B-86FA83549B77}</Project>
@@ -144,7 +132,7 @@
     <EmbeddedResource Include="Resources\HeaderGraphic.pdf" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Units\Renderers\PdfSharp-WPF\" />
+    <Folder Include="Renderers\PdfSharp-WPF\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\test.jpg" />

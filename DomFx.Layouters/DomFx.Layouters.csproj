@@ -98,7 +98,7 @@
     <Compile Include="Actions\StopOr.cs" />
     <Compile Include="Unit.cs" />
     <Compile Include="UnitEx.cs" />
-    <Compile Include="UnitType.cs" />
+    <Compile Include="UnitOfMeasure.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

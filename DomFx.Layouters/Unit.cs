@@ -4,27 +4,27 @@ namespace DomFx.Layouters
 {
     public struct Unit : IComparable<Unit>
     {
-        public static readonly Unit Undefined = new Unit(0, UnitType.Point, false);
-        public static readonly Unit Zero = new Unit(0, UnitType.Point, true);
+        public static readonly Unit Undefined = new Unit(0, UnitOfMeasure.Point, false);
+        public static readonly Unit Zero = new Unit(0, UnitOfMeasure.Point, true);
         readonly bool defined;
         readonly double points;
 
-        Unit(double value, UnitType unitType, bool defined)
+        Unit(double value, UnitOfMeasure unitOfMeasure, bool defined)
         {
             this.defined = defined;
-            switch (unitType)
+            switch (unitOfMeasure)
             {
-                case UnitType.Point:
+                case UnitOfMeasure.Point:
                     points = value;
                     break;
-                case UnitType.Centimeter:
+                case UnitOfMeasure.Centimeter:
                     points = value*72/2.54;
                     break;
-                case UnitType.Inch:
+                case UnitOfMeasure.Inch:
                     points = value*72;
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException("unitType");
+                    throw new ArgumentOutOfRangeException("unitOfMeasure");
             }
         }
 
@@ -55,22 +55,22 @@ namespace DomFx.Layouters
 
         public static Unit FromCentimeters(double value)
         {
-            return new Unit(value, UnitType.Centimeter, true);
+            return new Unit(value, UnitOfMeasure.Centimeter, true);
         }
 
         public static Unit FromInches(double value)
         {
-            return new Unit(value, UnitType.Inch, true);
+            return new Unit(value, UnitOfMeasure.Inch, true);
         }
 
         public static Unit FromPoints(double value)
         {
-            return new Unit(value, UnitType.Point, true);
+            return new Unit(value, UnitOfMeasure.Point, true);
         }
 
-        public static Unit From(UnitType unitType, double value)
+        public static Unit From(UnitOfMeasure unitOfMeasure, double value)
         {
-            return new Unit(value, unitType, true);
+            return new Unit(value, unitOfMeasure, true);
         }
 
         public static Unit operator -(Unit left, Unit right)

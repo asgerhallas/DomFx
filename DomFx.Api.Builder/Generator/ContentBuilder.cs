@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DomFx.Layouters;
 using DomFx.Layouters.Specification.DocumentStructure;
 using DomFx.Layouters.Specification.Element;
 using DomFx.Layouters.Specification.Style;
@@ -25,6 +26,13 @@ namespace DomFx.Api.Builder.Generator
 
     public abstract class ElementBuilder<TSource> : IBuilder<TSource, IElement>
     {
+        readonly UnitOfMeasure unitOfMeasure;
+
+        protected ElementBuilder(UnitOfMeasure unitOfMeasure)
+        {
+            this.unitOfMeasure = unitOfMeasure;
+        }
+
         public abstract IEnumerable<IElement> Build(TSource source);
 
         protected Box Box(params IElement[] children)
@@ -40,7 +48,13 @@ namespace DomFx.Api.Builder.Generator
             return box;
         }
 
-        protected Box Box(FlowStyle flow = FlowStyle.Float, params IElement[] children)
+        protected Box Box(
+            string name = null,
+            double? height = null,
+            double? width = null,
+            Margins margins = null,
+            FlowStyle? flow = null,
+            params IElement[] children)
         {
             return Box(new GenericStyle<BoxStyleBuilder>(style =>
             {
@@ -49,9 +63,22 @@ namespace DomFx.Api.Builder.Generator
             }));
         }
 
+        protected Margins Margins(double top, double right, double bottom, double left)
+        {
+            return new Margins(Unit.From(builder.StandardUnit, top),);
+        }
+
         protected IElement Yield(IBuilder<TSource, IElement> builder, TSource source)
         {
             return null; //builder.Build(source);
+        }
+    }
+
+    public class BoxBuilder
+    {
+        BoxBuilder Name(string name)
+        {
+            
         }
     }
 
