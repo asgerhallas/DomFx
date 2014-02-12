@@ -38,9 +38,14 @@ namespace DomFx.Api.Builder.Generator
             element.InnerWidth = width;
         }
 
-        public void Height(Unit width)
+        public void Height(Unit height)
         {
-            element.InnerWidth = width;
+            element.InnerHeight = height;
+        }
+
+        public void Margins(Margins margins)
+        {
+            element.Margins = margins;
         }
    }
 

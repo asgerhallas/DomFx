@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using DomFx.Layouters;
+using DomFx.Layouters.Specification;
 using DomFx.Layouters.Specification.DocumentStructure;
 using DomFx.Layouters.Specification.Element;
 using DomFx.Layouters.Specification.Style;
@@ -64,6 +65,7 @@ namespace DomFx.Api.Builder.Generator
 
                     style.Width(width != null ? Unit.From(unitOfMeasure, (double) width) : Unit.Undefined);
                     style.Height(height != null ? Unit.From(unitOfMeasure, (double) height) : Unit.Undefined);
+                    style.Margins(margins ?? Layouters.Specification.Style.Margins.None());
                 }),
                 children ?? Enumerable.Empty<IElement>());
         }
@@ -75,14 +77,89 @@ namespace DomFx.Api.Builder.Generator
             return box;
         }
 
-        protected Text Text(params IElement[] children)
+        protected Text Text(string name, string text, IStyle<BoxStyleBuilder> style, params IElement[] children)
         {
-            return null;
+            return Text(name, text, style, (IEnumerable<IElement>)children);
         }
 
-        protected Image Image(params IElement[] children)
+        protected Text Text(string text, IStyle<BoxStyleBuilder> style, params IElement[] children)
         {
-            return null;
+            return Text(null, text, style, (IEnumerable<IElement>)children);
+        }
+
+        protected Box Text(
+            string name = null,
+            double? height = null,
+            double? width = null,
+            Margins margins = null,
+            FlowStyle? flow = null,
+            string text = null,
+            IEnumerable<IElement> children = null)
+        {
+            return Text(
+                name,
+                text ?? "",
+                new InlineStyle<BoxStyleBuilder>(style =>
+                {
+                    if (flow == FlowStyle.Float)
+                        style.Float();
+
+                    style.Width(width != null ? Unit.From(unitOfMeasure, (double)width) : Unit.Undefined);
+                    style.Height(height != null ? Unit.From(unitOfMeasure, (double)height) : Unit.Undefined);
+                    style.Margins(margins ?? Layouters.Specification.Style.Margins.None());
+                }),
+                children ?? Enumerable.Empty<IElement>());
+        }
+
+
+        protected Text Text(string name, string text, IStyle<BoxStyleBuilder> style, IEnumerable<IElement> children)
+        {
+            var box = new Text(name, children);
+            box.TextContent = text;
+            style.Apply(new BoxStyleBuilder(box));
+            return box;
+        }
+
+        protected Image Image(string name, IImageSource image, IStyle<BoxStyleBuilder> style, params IElement[] children)
+        {
+            return Image(name, image, style, (IEnumerable<IElement>)children);
+        }
+
+        protected Image Image(IImageSource image, IStyle<BoxStyleBuilder> style, params IElement[] children)
+        {
+            return Image(null, image, style, (IEnumerable<IElement>)children);
+        }
+
+        protected Image Image(
+            string name = null,
+            double? height = null,
+            double? width = null,
+            Margins margins = null,
+            FlowStyle? flow = null,
+            IImageSource image = null,
+            IEnumerable<IElement> children = null)
+        {
+            return Image(
+                name,
+                image,
+                new InlineStyle<BoxStyleBuilder>(style =>
+                {
+                    if (flow == FlowStyle.Float)
+                        style.Float();
+
+                    style.Width(width != null ? Unit.From(unitOfMeasure, (double)width) : Unit.Undefined);
+                    style.Height(height != null ? Unit.From(unitOfMeasure, (double)height) : Unit.Undefined);
+                    style.Margins(margins ?? Layouters.Specification.Style.Margins.None());
+                }),
+                children ?? Enumerable.Empty<IElement>());
+        }
+
+        protected Image Image(string name, IImageSource image, IStyle<BoxStyleBuilder> style, IEnumerable<IElement> children)
+        {
+            var box = new Image(name, children);
+            box.Source = image;
+            style.Apply(new BoxStyleBuilder(box));
+            return box;
         }
 
         protected Margins Margins(double top, double right, double bottom, double left)
