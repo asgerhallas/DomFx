@@ -11,10 +11,12 @@ namespace DomFx.Api.Builder.Generator
 
     public class StyleBuilder : IStyleBuilder
     {
+        readonly UnitOfMeasure unitOfMeasure;
         readonly IElement element;
 
-        public StyleBuilder(IElement element)
+        public StyleBuilder(UnitOfMeasure unitOfMeasure, IElement element)
         {
+            this.unitOfMeasure = unitOfMeasure;
             this.element = element;
         }
 
@@ -47,10 +49,26 @@ namespace DomFx.Api.Builder.Generator
         {
             element.Margins = margins;
         }
-   }
 
-    public interface IStyle<in T>
+        public void Font(IFont font)
+        {
+            var text = element as Text;
+            if (text != null)
+            {
+                text.Font = font;
+            }
+        }
+    }
+
+    public interface IStyle
     {
-        void Apply(T style);
+        void Apply(StyleBuilder style);
+    }
+
+    class SomStyle : IStyle
+    {
+        public void Apply(StyleBuilder style)
+        {
+        }
     }
 }

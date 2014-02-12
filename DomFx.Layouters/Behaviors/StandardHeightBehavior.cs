@@ -2,7 +2,7 @@ namespace DomFx.Layouters.Behaviors
 {
     public abstract class StandardHeightBehavior : IHeightBehavior
     {
-        public void Behave(LayoutedElement element)
+        public void ApplyBeforePaging(LayoutedElement element)
         {
             if (element.ForcedInnerHeight.IsDefined)
                 return;

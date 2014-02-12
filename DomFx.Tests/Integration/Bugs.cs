@@ -20,7 +20,6 @@ namespace DomFx.Tests.Integration
                 Text("C", "C", font: new TestFont())
             ));
 
-
             Layout();
 
             Element("A").BorderBox.Top.ShouldBe(0.cm());
@@ -40,20 +39,6 @@ namespace DomFx.Tests.Integration
                     height: 5,
                     width: 5)
                 ));
-
-            //Box().Name("A").Height(5).Width(5).Margins(0, 0, 0, 5);
-            //End<Box>();
-            //Box().Name("B").Height(5).Width(5);
-
-            //Box()
-            //    .Name("B")
-            //    .Height(5)
-            //    .Width(5)
-            //    .Box()
-            //    .Box()
-            //        .Height(2)
-            //        .WIdth(2)
-            //        .Box()
 
             Layout();
 

@@ -1,10 +1,9 @@
 using System.Linq;
-using DomFx.Layouters.Specification;
 using DomFx.Layouters.Specification.Element;
 
 namespace DomFx.Layouters.Behaviors
 {
-    public abstract class CompositeBehavior
+    public class CompositeBehavior : IHeightBehavior, IWidthBehavior
     {
         readonly IBehavior[] behaviors;
 
@@ -13,22 +12,20 @@ namespace DomFx.Layouters.Behaviors
             this.behaviors = behaviors;
         }
 
-        void ApplyInternal<TBehavior, TElement>(TElement element) where TBehavior : IBehavior<TElement>
+        public void ApplyBeforePaging(LayoutedElement element)
         {
-            foreach (var behavior in behaviors.OfType<TBehavior>())
+            foreach (var behavior in behaviors.OfType<IHeightBehavior>())
             {
-                behavior.Behave(element);
+                behavior.ApplyBeforePaging(element);
             }
         }
 
-        public void Apply<TBehavior>(LayoutedElement element) where TBehavior : IBehavior<LayoutedElement>
+        public void ApplyBeforeLining(IElement element)
         {
-            ApplyInternal<TBehavior, LayoutedElement>(element);
-        }
-
-        public void Apply<TBehavior>(IElement element) where TBehavior : IBehavior<IElement>
-        {
-            ApplyInternal<TBehavior, IElement>(element);
+            foreach (var behavior in behaviors.OfType<IWidthBehavior>())
+            {
+                behavior.ApplyBeforeLining(element);
+            }
         }
     }
 }

@@ -41,7 +41,7 @@ namespace DomFx.Layouters
         {
             get
             {
-                Specification.Behavior.Apply<IHeightBehavior>(this);
+                Specification.Behavior.ApplyBeforePaging(this);
                 return ForcedInnerHeight.IsDefined ? ForcedInnerHeight : children.OuterHeight;
             }
         }

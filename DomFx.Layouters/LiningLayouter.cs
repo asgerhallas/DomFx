@@ -39,7 +39,7 @@ namespace DomFx.Layouters
             foreach (var element in elements)
             {
                 var breakBeforeThisElement = false;
-                element.Behavior.Apply<IWidthBehavior>(element);
+                element.Behavior.ApplyBeforeLining(element);
 
                 var layoutedElement = LayoutElement(element);
 

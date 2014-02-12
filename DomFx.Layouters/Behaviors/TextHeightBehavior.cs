@@ -16,12 +16,12 @@ namespace DomFx.Layouters.Behaviors
 
         protected override Unit CalculateHeight(LayoutedElement element)
         {
-            return specification.Font.CalculateTextHeight(specification.TextContent, element.ForcedInnerWidth);
+            return specification.Font.CalculateTextHeight(specification.Content, element.ForcedInnerWidth);
         }
 
         IEnumerable<string> GetParagraphs()
         {
-            return specification.TextContent.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
+            return specification.Content.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
         }
     }
 }

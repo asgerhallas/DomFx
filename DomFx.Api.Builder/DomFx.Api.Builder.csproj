@@ -44,13 +44,17 @@
     <Compile Include="Generator\ConditionalBuilder.cs" />
     <Compile Include="Generator\ContentBuilder.cs" />
     <Compile Include="Generator\DocumentBuilder.cs" />
+    <Compile Include="Generator\ElementBuilder.cs" />
     <Compile Include="Generator\EnumeratingBuilder.cs" />
     <Compile Include="Generator\IBuilder.cs" />
     <Compile Include="Generator\IBuilderCommand.cs" />
+    <Compile Include="Generator\InlineStyle.cs" />
     <Compile Include="Generator\IProjection.cs" />
     <Compile Include="Generator\ISpecification.cs" />
     <Compile Include="Generator\IStyle.cs" />
     <Compile Include="Generator\NullBuilder.cs" />
+    <Compile Include="Generator\NullFont.cs" />
+    <Compile Include="Generator\NullStyle.cs" />
     <Compile Include="Generator\SectionBuilder.cs" />
     <Compile Include="IProjection.cs" />
     <Compile Include="ISpecification.cs" />

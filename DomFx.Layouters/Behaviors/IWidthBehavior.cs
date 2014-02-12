@@ -1,9 +1,9 @@
-using DomFx.Layouters.Specification;
 using DomFx.Layouters.Specification.Element;
 
 namespace DomFx.Layouters.Behaviors
 {
-    public interface IWidthBehavior : IBehavior<IElement>
+    public interface IWidthBehavior : IBehavior
     {
+        void ApplyBeforeLining(IElement element);
     }
 }

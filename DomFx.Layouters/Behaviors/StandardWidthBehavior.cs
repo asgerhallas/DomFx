@@ -1,11 +1,10 @@
-using DomFx.Layouters.Specification;
 using DomFx.Layouters.Specification.Element;
 
 namespace DomFx.Layouters.Behaviors
 {
     public abstract class StandardWidthBehavior : IWidthBehavior
     {
-        public void Behave(IElement element)
+        public void ApplyBeforeLining(IElement element)
         {
             if (element.InnerWidth.IsDefined)
                 return;

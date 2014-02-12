@@ -31,7 +31,7 @@ namespace DomFx.Renderers.PdfSharp.WPF
             //if (!string.IsNullOrEmpty(element.Filling))
             //    fillCharWidth = text.Font.CalculateTextWidth(element.Filling);
 
-            gfx.DrawString(specification.TextContent,
+            gfx.DrawString(specification.Content,
                            ((PdfSharpFont)specification.Font).XFont,
                            new XSolidBrush(XColor.FromArgb(specification.TextColor)),
                            new XRect(element.InnerBox.Left.Points, element.InnerBox.Top.Points, 10, element.InnerBox.Height.Points),
@@ -40,7 +40,7 @@ namespace DomFx.Renderers.PdfSharp.WPF
 
             //var y = element.InnerTop.Points;
             //var lineHeight = 0.cm();
-            //foreach (var lineFromText in ((TextBehavior)specification.IBehavior).GetLines(specification.TextContent, specification.Font, element.InnerWidth))
+            //foreach (var lineFromText in ((TextBehavior)specification.IBehavior).GetLines(specification.Content, specification.Font, element.InnerWidth))
             //{
             //    if (lineHeight < element.ViewportTop || (element.ViewportBottom != 0.cm() && lineHeight > element.ViewportBottom))
             //    {
