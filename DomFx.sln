@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomFx.Layouters", "DomFx.Layouters\DomFx.Layouters.csproj", "{4C01A9E0-29FB-4A47-9B6B-86FA83549B77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomFx.Api", "DomFx.Api\DomFx.Api.csproj", "{349B31F1-BF5A-4A18-9A65-FBE1AE6BF74A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomFx.Tests", "DomFx.Tests\DomFx.Tests.csproj", "{D90B85B1-2BF4-4700-B2B7-9F3F21FD05F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomFx.Renderers.iTextSharp", "DomFx.Renderers.iTextSharp\DomFx.Renderers.iTextSharp.csproj", "{C94995AE-E0E5-409B-AA46-BB14111CE80C}"
@@ -41,16 +39,6 @@ Global
 		{4C01A9E0-29FB-4A47-9B6B-86FA83549B77}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{4C01A9E0-29FB-4A47-9B6B-86FA83549B77}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{4C01A9E0-29FB-4A47-9B6B-86FA83549B77}.Release|x86.ActiveCfg = Release|Any CPU
-		{349B31F1-BF5A-4A18-9A65-FBE1AE6BF74A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{349B31F1-BF5A-4A18-9A65-FBE1AE6BF74A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{349B31F1-BF5A-4A18-9A65-FBE1AE6BF74A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{349B31F1-BF5A-4A18-9A65-FBE1AE6BF74A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{349B31F1-BF5A-4A18-9A65-FBE1AE6BF74A}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{349B31F1-BF5A-4A18-9A65-FBE1AE6BF74A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{349B31F1-BF5A-4A18-9A65-FBE1AE6BF74A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{349B31F1-BF5A-4A18-9A65-FBE1AE6BF74A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{349B31F1-BF5A-4A18-9A65-FBE1AE6BF74A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{349B31F1-BF5A-4A18-9A65-FBE1AE6BF74A}.Release|x86.ActiveCfg = Release|Any CPU
 		{D90B85B1-2BF4-4700-B2B7-9F3F21FD05F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D90B85B1-2BF4-4700-B2B7-9F3F21FD05F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D90B85B1-2BF4-4700-B2B7-9F3F21FD05F1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU

@@ -63,7 +63,7 @@ namespace DomFx.Api.Builder.Generator
                         style.Float();
 
                     style.Width(width != null ? Unit.From(unitOfMeasure, (double) width) : Unit.Undefined);
-                    style.Height(height != null ? Unit.From(unitOfMeasure, (double)height) : Unit.Undefined);
+                    style.Height(height != null ? Unit.From(unitOfMeasure, (double) height) : Unit.Undefined);
                 }),
                 children ?? Enumerable.Empty<IElement>());
         }
