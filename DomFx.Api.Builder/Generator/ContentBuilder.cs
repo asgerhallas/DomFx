@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification;

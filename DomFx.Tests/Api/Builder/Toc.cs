@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Forms.VisualStyles;
 using DomFx.Api.Builder.Generator;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification.DocumentStructure;
@@ -53,7 +54,7 @@ namespace DomFx.Tests.Api.Builder
         {
             return Document(
                 Section(
-                    header: Content(builder: new NullBuilder<int, IElement>()),
+                    header: Content(builders: new NullBuilder<int, IElement>()),
                     content: Content(Margins.None(), 
                         new MainContent(new NullBuilder<int, IElement>())))
                 );

@@ -17,9 +17,10 @@ namespace DomFx.Api.Builder.Generator
 
         public abstract IBuilder<T, Document> Compose();
 
-        public static IBuilder<TSource, Document> Document<TSource>(IBuilder<TSource, Section> builder)
+        public static IBuilder<TSource, Document> Document<TSource>(params IBuilder<TSource, Section>[] builders)
         {
-            return new DocumentBuilder<TSource>(builder);
+            return new DocumentBuilder<TSource>(
+                new CompositeBuilder<TSource, Section>(builders));
         }
 
         public static IBuilder<TSource, Section> Section<TSource>(
@@ -34,12 +35,17 @@ namespace DomFx.Api.Builder.Generator
         }
 
         public static IBuilder<TSource, Content> Content<TSource>(
-            Margins margins = null,
-            IBuilder<TSource, IElement> builder = null)
+            params IBuilder<TSource, IElement>[] builders)
+        {
+            return Content(Margins.None(), builders);
+        }
+
+        public static IBuilder<TSource, Content> Content<TSource>(
+            Margins margins,
+            params IBuilder<TSource, IElement>[] builders)
         {
             return new ContentBuilder<TSource>(
-                margins ?? Margins.None(),
-                builder ?? new NullBuilder<TSource, IElement>());
+                margins, new CompositeBuilder<TSource, IElement>(builders));
         }
 
         public static IBuilder<TSource, TResult> Compose<TSource, TResult>(
