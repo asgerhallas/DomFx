@@ -2,8 +2,8 @@
 
 namespace DomFx.Api.Builder.Generator
 {
-    public interface IBuilder<in TSource, out TResult> : IProjection<TSource, IEnumerable<TResult>>
+    public interface IBuilder<in TSource, out TResult>
     {
-        
+        IEnumerable<TResult> Build(TSource source);
     }
 }

@@ -67,13 +67,6 @@ namespace DomFx.Api.Builder.Generator
             return new EnumeratingBuilder<TSource, TCollection, TResult>(source, builder);
         }
 
-        public static IBuilder<TSource, TResult> Transform<TSource, TCollection, TResult>(
-            IProjection<TSource, IEnumerable<TCollection>> projection,
-            IBuilder<IEnumerable<TCollection>, TResult> builder)
-        {
-            return new TransformationBuilder<TSource, TCollection, TResult>(projection, builder);
-        }
-
         public static IBuilder<TSource, TResult> Null<TSource, TResult>()
         {
             return new NullBuilder<TSource, TResult>();

@@ -52,7 +52,6 @@
     <Compile Include="Generator\IStyle.cs" />
     <Compile Include="Generator\NullBuilder.cs" />
     <Compile Include="Generator\SectionBuilder.cs" />
-    <Compile Include="Generator\TransformationBuilder.cs" />
     <Compile Include="IProjection.cs" />
     <Compile Include="ISpecification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

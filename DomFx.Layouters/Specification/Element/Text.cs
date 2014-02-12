@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Media;
 using DomFx.Layouters.Behaviors;
 using DomFx.Layouters.Specification.Style;
@@ -7,23 +8,27 @@ namespace DomFx.Layouters.Specification.Element
 {
     public class Text : Box
     {
-        public Text(string name, IEnumerable<IElement> children) : base(name, children)
+        public const string PageNumber = "%PageNumber%";
+
+        public Text(string name, string text, IEnumerable<IElement> children)
+            : base(name, children)
         {
+            if (text == null)
+                throw new ArgumentNullException("Text must be set");
+
+            TextContent = text;
             BackgroundColor = Colors.Transparent;
             TextColor = Colors.Black;
-            TextContent = "";
             HorizontalAlignment = HorizontalAlignment.Left;
             Behavior = new TextBehavior(this);
         }
 
-        public Font Font { get; set; }
-        public string TextContent { get; set; }
+        public string TextContent { get; private set; }
 
+        public IFont Font { get; set; }
         public Color TextColor { get; set; }
         public HorizontalAlignment HorizontalAlignment { get; set; }
         public VerticalAlignment VerticalAlignment { get; set; }
         public string Leader { get; set; }
-
-        public const string PageNumber = "%PageNumber%";
     }
 }

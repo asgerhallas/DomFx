@@ -1,21 +1,21 @@
 using DomFx.Layouters;
+using DomFx.Layouters.Specification.Style;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-using Font = DomFx.Layouters.Specification.Style.Font;
 
 namespace DomFx.Renderers.iTextSharp
 {
-    public class iTextSharpFont : Layouters.Specification.Style.Font
+    public class iTextSharpFont : IFont
     {
         readonly double leading;
 
         public iTextSharpFont(BaseFont font, double size, double leading)
         {
             this.leading = leading;
-            Font = new global::iTextSharp.text.Font(font, (float) size);
+            Font = new Font(font, (float) size);
         }
 
-        public iTextSharpFont(global::iTextSharp.text.Font font, double leading)
+        public iTextSharpFont(Font font, double leading)
         {
             this.leading = leading;
             Font = font;
@@ -26,7 +26,7 @@ namespace DomFx.Renderers.iTextSharp
             get { return leading; }
         }
 
-        public global::iTextSharp.text.Font Font { get; private set; }
+        public Font Font { get; private set; }
 
         public string Family
         {

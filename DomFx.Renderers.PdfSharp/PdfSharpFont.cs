@@ -9,7 +9,7 @@ using PdfSharp.Pdf;
 
 namespace DomFx.Renderers.PdfSharp.WPF
 {
-    public class PdfSharpFont : Font
+    public class PdfSharpFont : IFont
     {
         public XFont XFont { get; private set; }
 

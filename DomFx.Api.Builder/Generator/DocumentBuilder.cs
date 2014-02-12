@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using DomFx.Layouters.Specification;
 using DomFx.Layouters.Specification.DocumentStructure;
 
 namespace DomFx.Api.Builder.Generator

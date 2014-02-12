@@ -6,7 +6,7 @@ namespace DomFx.Layouters.Specification
 {
     public interface ITexted : IElement
     {
-        Font Font { get; set; }
+        IFont Font { get; set; }
         string TextContent { get; set; }
         Color TextColor { get; set; }
         HorizontalAlignment HorizontalAlignment { get; set; }

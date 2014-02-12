@@ -1,24 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DomFx.Layouters.Specification.Element
 {
     public class Image : Box
     {
-        public Image() { }
+        public Image(IImageSource source) : this(null, source, Enumerable.Empty<IElement>()) {}
 
-        public Image(string name, IEnumerable<IElement> children) : base(name, children)
+        public Image(string name, IImageSource source, IEnumerable<IElement> children) : base(name, children)
         {
+            if (source == null)
+                throw new ArgumentNullException("Image source must be set");
+
+            Source = source;
             Behavior = new ImageBehavior(this);
         }
 
-        public IImageSource Source { get; set; }
+        public IImageSource Source { get; private set; }
 
         public void SizeBySource()
         {
-            if (Source == null)
-                throw new InvalidOperationException("Source must be set before call to SizeBySource()");
-
             InnerWidth = Source.Width;
             InnerHeight = Source.Height;
         }

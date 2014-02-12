@@ -59,7 +59,7 @@
     <Compile Include="Specification\Style\Borders.cs" />
     <Compile Include="Specification\Element\Box.cs" />
     <Compile Include="Specification\DocumentStructure\Content.cs" />
-    <Compile Include="Specification\Style\Font.cs" />
+    <Compile Include="Specification\Style\IFont.cs" />
     <Compile Include="Behaviors\IHeightBehavior.cs" />
     <Compile Include="Specification\Element\Image.cs" />
     <Compile Include="Specification\ImageBehavior.cs" />

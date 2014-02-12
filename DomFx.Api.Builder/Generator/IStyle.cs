@@ -9,11 +9,11 @@ namespace DomFx.Api.Builder.Generator
         
     }
 
-    public abstract class ElementStyleBuilder : IStyleBuilder
+    public class StyleBuilder : IStyleBuilder
     {
         readonly IElement element;
 
-        protected ElementStyleBuilder(IElement element)
+        public StyleBuilder(IElement element)
         {
             this.element = element;
         }
@@ -48,16 +48,6 @@ namespace DomFx.Api.Builder.Generator
             element.Margins = margins;
         }
    }
-
-    public class BoxStyleBuilder : ElementStyleBuilder
-    {
-        readonly Box box;
-
-        public BoxStyleBuilder(Box box) : base(box)
-        {
-            this.box = box;
-        }
-    }
 
     public interface IStyle<in T>
     {

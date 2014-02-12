@@ -1,5 +1,7 @@
 using DomFx.Layouters;
 using DomFx.Tests.Api.Builder;
+using DomFx.Tests.Fakes;
+using iTextSharp.text;
 using Shouldly;
 using Xunit;
 
@@ -13,12 +15,11 @@ namespace DomFx.Tests.Integration
         public void texts_with_no_width_set_is_layouted_on_the_same_position()
         {
             Setup(() => Yield(
-                Text("navn", new MyBoxStyle())
+                Text("A", "A", font: new TestFont()),
+                Text("B", "B", font: new TestFont()),
+                Text("C", "C", font: new TestFont())
             ));
 
-            //Text().Name("A").Text("A").Font(new TestFont());
-            //Text().Name("B").Text("B").Font(new TestFont());
-            //Text().Name("C").Text("C").Font(new TestFont());
 
             Layout();
 

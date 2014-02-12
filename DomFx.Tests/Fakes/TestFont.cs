@@ -4,7 +4,7 @@ using DomFx.Layouters.Specification.Style;
 
 namespace DomFx.Tests.Fakes
 {
-    public class TestFont : Font
+    public class TestFont : IFont
     {
         public string Family { get { return "Hallas"; }}
 

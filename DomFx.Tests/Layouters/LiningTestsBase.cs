@@ -18,12 +18,12 @@ namespace DomFx.Tests.Layouters
         Page page;
 
         protected IElement Element(
-            DomFx.Layouters.Unit innerWidth = default(DomFx.Layouters.Unit),
-            DomFx.Layouters.Unit innerHeight = default(DomFx.Layouters.Unit),
+            Unit innerWidth = default(Unit),
+            Unit innerHeight = default(Unit),
             bool breakable = false,
             bool followLineHeight = false,
             FlowStyle flow = FlowStyle.Float,
-            DomFx.Layouters.Unit border = default(DomFx.Layouters.Unit),
+            Unit border = default(Unit),
             bool keepWithNextLine = false,
             CompositeBehavior behavior = null,
             IEnumerable<Func<int, IElement>> children = null)
@@ -32,19 +32,19 @@ namespace DomFx.Tests.Layouters
                 innerWidth, innerHeight, breakable,
                 followLineHeight, flow, border,
                 keepWithNextLine, behavior, children);
-            
+
             var line = generator(cardinality++);
             elements.Add(line);
             return line;
         }
 
         protected Func<int, IElement> ChildElement(
-            DomFx.Layouters.Unit innerWidth = default(DomFx.Layouters.Unit),
-            DomFx.Layouters.Unit innerHeight = default(DomFx.Layouters.Unit),
+            Unit innerWidth = default(Unit),
+            Unit innerHeight = default(Unit),
             bool breakable = false,
             bool followLineHeight = false,
             FlowStyle flow = FlowStyle.Float,
-            DomFx.Layouters.Unit border = default(DomFx.Layouters.Unit),
+            Unit border = default(Unit),
             bool keepWithNextLine = false,
             CompositeBehavior behavior = null,
             IEnumerable<Func<int, IElement>> children = null)
@@ -54,19 +54,19 @@ namespace DomFx.Tests.Layouters
             return cardinality => new TestSpecification(
                 "Element#" + cardinality,
                 children.Select((x, i) => x.Invoke(cardinality + i + 1)))
-                {
-                    InnerHeight = innerHeight,
-                    InnerWidth = innerWidth,
-                    FollowLineHeight = followLineHeight,
-                    Flow = flow,
-                    KeepWithNextLine = keepWithNextLine,
-                    Breakable = breakable,
-                    Behavior = behavior ?? new NullBehavior(),
-                    Margins = new Margins {Bottom = border, Left = border, Right = border, Top = border}
-                };
+            {
+                InnerHeight = innerHeight,
+                InnerWidth = innerWidth,
+                FollowLineHeight = followLineHeight,
+                Flow = flow,
+                KeepWithNextLine = keepWithNextLine,
+                Breakable = breakable,
+                Behavior = behavior ?? new NullBehavior(),
+                Margins = new Margins {Bottom = border, Left = border, Right = border, Top = border}
+            };
         }
 
-        protected Page LayoutWithPageWidth(DomFx.Layouters.Unit pageWidth)
+        protected Page LayoutWithPageWidth(Unit pageWidth)
         {
             lines = LiningLayouter.Layout(elements, pageWidth).ToList();
             page = ElementsLayouter.Layout(lines.AsLines());
@@ -101,7 +101,7 @@ namespace DomFx.Tests.Layouters
                 this.element = element;
             }
 
-            public void ShouldBeAt(DomFx.Layouters.Unit left, DomFx.Layouters.Unit top, DomFx.Layouters.Unit width, DomFx.Layouters.Unit height, DomFx.Layouters.Unit originalInnerWidth = default(DomFx.Layouters.Unit), DomFx.Layouters.Unit originalInnerHeight = default(DomFx.Layouters.Unit))
+            public void ShouldBeAt(Unit left, Unit top, Unit width, Unit height, Unit originalInnerWidth = default(Unit), Unit originalInnerHeight = default(Unit))
             {
                 element.MarginBox.Top.ShouldBe(top);
                 element.MarginBox.Left.ShouldBe(left);

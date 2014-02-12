@@ -17,9 +17,10 @@ namespace DomFx.Layouters.Specification.Element
         public Box(string name, IEnumerable<IElement> children)
         {
             if (name != null && name.Contains('-'))
-            {
                 throw new ArgumentException("Name must not contain special character - (dash)");
-            }
+
+            if (children == null)
+                throw new ArgumentNullException("Children must not be null");
 
             this.name = name;
             this.children = children.ToList();
@@ -27,9 +28,12 @@ namespace DomFx.Layouters.Specification.Element
             BackgroundColor = Colors.Transparent;
             Borders = new Borders();
             Margins = new Margins();
-            WidowHeight = 2.cm();
-            OrphanHeight = 2.cm();
+            KeepWithNextLine = false;
+            Flow = FlowStyle.Float;
             Breakable = true;
+            OrphanHeight = 2.cm();
+            WidowHeight = 2.cm();
+            FollowLineHeight = false;
             Behavior = new NullBehavior();
         }
 
