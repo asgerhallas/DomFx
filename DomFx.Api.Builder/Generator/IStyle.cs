@@ -1,4 +1,5 @@
-﻿using DomFx.Layouters.Specification.Element;
+﻿using DomFx.Layouters;
+using DomFx.Layouters.Specification.Element;
 using DomFx.Layouters.Specification.Style;
 
 namespace DomFx.Api.Builder.Generator
@@ -8,7 +9,7 @@ namespace DomFx.Api.Builder.Generator
         
     }
 
-    public abstract class ElementStyleBuilder
+    public abstract class ElementStyleBuilder : IStyleBuilder
     {
         readonly IElement element;
 
@@ -31,25 +32,29 @@ namespace DomFx.Api.Builder.Generator
         {
             Flow(FlowStyle.Clear);
         }
+
+        public void Width(Unit width)
+        {
+            element.InnerWidth = width;
+        }
+
+        public void Height(Unit width)
+        {
+            element.InnerWidth = width;
+        }
    }
 
-    public class BoxStyleBuilder : IStyleBuilder
+    public class BoxStyleBuilder : ElementStyleBuilder
     {
         readonly Box box;
 
-        public BoxStyleBuilder(Box box)
+        public BoxStyleBuilder(Box box) : base(box)
         {
             this.box = box;
         }
-
-        public Box Float()
-        {
-            box.Flow = FlowStyle.Float;
-            return box;
-        }
     }
 
-    public interface IStyle<T>
+    public interface IStyle<in T>
     {
         void Apply(T style);
     }

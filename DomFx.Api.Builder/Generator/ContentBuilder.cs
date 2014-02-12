@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification.DocumentStructure;
 using DomFx.Layouters.Specification.Element;
@@ -35,17 +37,14 @@ namespace DomFx.Api.Builder.Generator
 
         public abstract IEnumerable<IElement> Build(TSource source);
 
-        protected Box Box(params IElement[] children)
+        protected Box Box(string name, IStyle<BoxStyleBuilder> style, params IElement[] children)
         {
-            return null;
+            return Box(name, style, (IEnumerable<IElement>)children);
         }
 
         protected Box Box(IStyle<BoxStyleBuilder> style, params IElement[] children)
         {
-            var box = new Box();
-            var styleBuilder = new BoxStyleBuilder(box);
-            style.Apply(styleBuilder);
-            return box;
+            return Box(null, style, (IEnumerable<IElement>)children);
         }
 
         protected Box Box(
@@ -54,18 +53,50 @@ namespace DomFx.Api.Builder.Generator
             double? width = null,
             Margins margins = null,
             FlowStyle? flow = null,
-            params IElement[] children)
+            IEnumerable<IElement> children = null)
         {
-            return Box(new GenericStyle<BoxStyleBuilder>(style =>
-            {
-                if (flow == FlowStyle.Float)
-                    style.Float();
-            }));
+            return Box(
+                name,
+                new InlineStyle<BoxStyleBuilder>(style =>
+                {
+                    if (flow == FlowStyle.Float)
+                        style.Float();
+
+                    style.Width(width != null ? Unit.From(unitOfMeasure, (double) width) : Unit.Undefined);
+                    style.Height(height != null ? Unit.From(unitOfMeasure, (double)height) : Unit.Undefined);
+                }),
+                children ?? Enumerable.Empty<IElement>());
+        }
+
+        protected Box Box(string name, IStyle<BoxStyleBuilder> style, IEnumerable<IElement> children)
+        {
+            var box = new Box(name, children);
+            style.Apply(new BoxStyleBuilder(box));
+            return box;
+        }
+
+        protected Text Text(params IElement[] children)
+        {
+            return null;
+        }
+
+        protected Image Image(params IElement[] children)
+        {
+            return null;
         }
 
         protected Margins Margins(double top, double right, double bottom, double left)
         {
-            return new Margins(Unit.From(builder.StandardUnit, top),);
+            return new Margins(
+                Unit.From(unitOfMeasure, top),
+                Unit.From(unitOfMeasure, right),
+                Unit.From(unitOfMeasure, bottom),
+                Unit.From(unitOfMeasure, left));
+        }
+
+        protected IEnumerable<IElement> Yield(params IElement[] children)
+        {
+            return children;
         }
 
         protected IElement Yield(IBuilder<TSource, IElement> builder, TSource source)
@@ -74,19 +105,11 @@ namespace DomFx.Api.Builder.Generator
         }
     }
 
-    public class BoxBuilder
-    {
-        BoxBuilder Name(string name)
-        {
-            
-        }
-    }
-
-    public class GenericStyle<T> : IStyle<T> where T : IStyleBuilder
+    public class InlineStyle<T> : IStyle<T> where T : IStyleBuilder
     {
         readonly Action<T> styler;
 
-        public GenericStyle(Action<T> styler)
+        public InlineStyle(Action<T> styler)
         {
             this.styler = styler;
         }
@@ -94,6 +117,13 @@ namespace DomFx.Api.Builder.Generator
         public void Apply(T style)
         {
             styler(style);
+        }
+    }
+
+    public class NullStyle<T> : IStyle<T> where T : IStyleBuilder
+    {
+        public void Apply(T style)
+        {
         }
     }
 }

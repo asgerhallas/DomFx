@@ -14,6 +14,8 @@ namespace DomFx.Tests.Integration
         IEnumerable<IElement> elements;
         List<Page> pages;
 
+        public IntegrationTestsBase(UnitOfMeasure unitOfMeasure) : base(unitOfMeasure) {}
+
         public override IEnumerable<IElement> Build(int source)
         {
             if (elements == null)
@@ -30,11 +32,6 @@ namespace DomFx.Tests.Integration
         public void Setup(Func<IElement> setup)
         {
             elements = new[] { setup() };
-        }
-
-        protected IEnumerable<IElement> Yield(params IElement[] elements)
-        {
-            return elements;
         }
 
         protected IEnumerable<Page> Layout()

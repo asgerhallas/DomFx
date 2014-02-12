@@ -6,6 +6,8 @@ namespace DomFx.Tests.Integration
 {
     public class Bugs : IntegrationTestsBase
     {
+        public Bugs() : base(UnitOfMeasure.Centimeter) { }
+
         [Fact]
         public void texts_with_no_width_set_is_layouted_on_the_same_position()
         {
@@ -31,23 +33,25 @@ namespace DomFx.Tests.Integration
                 Box(name: "A",
                     height: 5,
                     width: 5,
-                    margins: Margins(0, 0, 0, 5),
-                    children: new []
-                    {
-                        Box()
-                    })
+                    margins: Margins(0, 0, 0, 5)),
+                Box(name: "B",
+                    height: 5,
+                    width: 5)
                 ));
 
-            Box()
-                .Name("B")
-                .Height(5)
-                .Width(5)
-                .Children(
-                    Box()
-                        .Height(2)
-                        .WIdth(2)
-                        .Children(
-                            Box()))
+            //Box().Name("A").Height(5).Width(5).Margins(0, 0, 0, 5);
+            //End<Box>();
+            //Box().Name("B").Height(5).Width(5);
+
+            //Box()
+            //    .Name("B")
+            //    .Height(5)
+            //    .Width(5)
+            //    .Box()
+            //    .Box()
+            //        .Height(2)
+            //        .WIdth(2)
+            //        .Box()
 
             Layout();
 
