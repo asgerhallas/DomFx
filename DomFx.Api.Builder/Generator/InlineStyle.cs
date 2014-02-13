@@ -2,16 +2,16 @@ using System;
 
 namespace DomFx.Api.Builder.Generator
 {
-    public class InlineStyle<T> : IStyle<T> where T : IStyleBuilder
+    public class InlineStyle : IStyle
     {
-        readonly Action<T> styler;
+        readonly Action<StyleBuilder> styler;
 
-        public InlineStyle(Action<T> styler)
+        public InlineStyle(Action<StyleBuilder> styler)
         {
             this.styler = styler;
         }
 
-        public void Apply(T style)
+        public void Apply(StyleBuilder style)
         {
             styler(style);
         }

@@ -4,19 +4,12 @@ using DomFx.Layouters.Specification.Style;
 
 namespace DomFx.Api.Builder.Generator
 {
-    public interface IStyleBuilder
+    public class StyleBuilder
     {
-        
-    }
-
-    public class StyleBuilder : IStyleBuilder
-    {
-        readonly UnitOfMeasure unitOfMeasure;
         readonly IElement element;
 
-        public StyleBuilder(UnitOfMeasure unitOfMeasure, IElement element)
+        public StyleBuilder(IElement element)
         {
-            this.unitOfMeasure = unitOfMeasure;
             this.element = element;
         }
 
@@ -50,6 +43,11 @@ namespace DomFx.Api.Builder.Generator
             element.Margins = margins;
         }
 
+        public void Borders(Borders borders)
+        {
+            element.Borders = borders;
+        }
+
         public void Font(IFont font)
         {
             var text = element as Text;
@@ -63,12 +61,5 @@ namespace DomFx.Api.Builder.Generator
     public interface IStyle
     {
         void Apply(StyleBuilder style);
-    }
-
-    class SomStyle : IStyle
-    {
-        public void Apply(StyleBuilder style)
-        {
-        }
     }
 }

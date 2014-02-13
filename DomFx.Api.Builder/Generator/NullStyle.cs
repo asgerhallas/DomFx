@@ -1,8 +1,8 @@
 namespace DomFx.Api.Builder.Generator
 {
-    public class NullStyle<T> : IStyle<T> where T : IStyleBuilder
+    public class NullStyle : IStyle
     {
-        public void Apply(T style)
+        public void Apply(StyleBuilder style)
         {
         }
     }

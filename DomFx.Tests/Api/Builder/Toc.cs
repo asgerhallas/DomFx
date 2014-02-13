@@ -37,7 +37,7 @@ namespace DomFx.Tests.Api.Builder
         }
     }
 
-    public class MyBoxStyle : IStyle<StyleBuilder>
+    public class MyBoxStyle : IStyle
     {
         public void Apply(StyleBuilder style)
         {

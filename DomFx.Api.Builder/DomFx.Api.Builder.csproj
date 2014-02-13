@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Generator\CascadeStyle.cs" />
     <Compile Include="Generator\Composer.cs" />
     <Compile Include="Generator\CompositeBuilder.cs" />
     <Compile Include="Generator\ConditionalBuilder.cs" />
