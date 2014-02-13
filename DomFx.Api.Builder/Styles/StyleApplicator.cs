@@ -1,14 +1,14 @@
-﻿using DomFx.Layouters;
+using DomFx.Layouters;
 using DomFx.Layouters.Specification.Element;
 using DomFx.Layouters.Specification.Style;
 
-namespace DomFx.Api.Builder.Generator
+namespace DomFx.Api.Builder.Styles
 {
-    public class StyleBuilder
+    public class StyleApplicator : IStyleApplicator
     {
         readonly IElement element;
 
-        public StyleBuilder(IElement element)
+        public StyleApplicator(IElement element)
         {
             this.element = element;
         }
@@ -56,10 +56,5 @@ namespace DomFx.Api.Builder.Generator
                 text.Font = font;
             }
         }
-    }
-
-    public interface IStyle
-    {
-        void Apply(StyleBuilder style);
     }
 }

@@ -1,4 +1,4 @@
-namespace DomFx.Api.Builder.Generator
+namespace DomFx.Api.Builder.Styles
 {
     public class CascadeStyle : IStyle
     {
@@ -11,9 +11,9 @@ namespace DomFx.Api.Builder.Generator
             this.overrides = overrides;
         }
 
-        public void Apply(StyleBuilder style)
+        public void Apply(IStyleApplicator style)
         {
-            ambient.Apply(style);
+            ambient.Apply(new CascadeStyleApplicator(style));
             overrides.Apply(style);
         }
     }

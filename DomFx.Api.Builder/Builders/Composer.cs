@@ -1,20 +1,12 @@
 ﻿using System.Collections.Generic;
-using DomFx.Layouters;
 using DomFx.Layouters.Specification.DocumentStructure;
 using DomFx.Layouters.Specification.Element;
 using DomFx.Layouters.Specification.Style;
 
-namespace DomFx.Api.Builder.Generator
+namespace DomFx.Api.Builder.Builders
 {
     public abstract class Composer<T>
     {
-        readonly UnitOfMeasure unitOfMeasure;
-
-        protected Composer(UnitOfMeasure unitOfMeasure)
-        {
-            this.unitOfMeasure = unitOfMeasure;
-        }
-
         public abstract IBuilder<T, Document> Compose();
 
         public static IBuilder<TSource, Document> Document<TSource>(params IBuilder<TSource, Section>[] builders)
@@ -35,17 +27,17 @@ namespace DomFx.Api.Builder.Generator
         }
 
         public static IBuilder<TSource, Content> Content<TSource>(
-            params IBuilder<TSource, IElement>[] builders)
+            params IBuilder<TSource, Element>[] builders)
         {
             return Content(Margins.None(), builders);
         }
 
         public static IBuilder<TSource, Content> Content<TSource>(
             Margins margins,
-            params IBuilder<TSource, IElement>[] builders)
+            params IBuilder<TSource, Element>[] builders)
         {
             return new ContentBuilder<TSource>(
-                margins, new CompositeBuilder<TSource, IElement>(builders));
+                margins, new CompositeBuilder<TSource, Element>(builders));
         }
 
         public static IBuilder<TSource, TResult> Compose<TSource, TResult>(

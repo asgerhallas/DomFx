@@ -48,34 +48,25 @@ namespace DomFx.Tests.Integration
             Element("B").BorderBox.Left.ShouldBe(10.cm());
         }
 
-        //////[Fact]
-        //////public void boxes_with_children_on_same_line_with_margins_misses_margins()
-        //////{
-        //////    Setup(() =>
-        //////    {
-        //////        Box()
-        //////            .Margins(0, 0, 0, 2.5);
-        //////        Text().Name("TextA")
-        //////            .Text("1.")
-        //////            .Font(new TestFont())
-        //////            .Width(2);
-        //////        End<Box>();
+        [Fact]
+        public void boxes_with_children_on_same_line_with_margins_misses_margins()
+        {
+            Setup(() => Yield(
+                Box(margins: Margins(0, 0, 0, 2.5),
+                    font: new TestFont(),
+                    width: 2,
+                    children: Yield(Text("TextA", text: "1."))),
+                Box(font: new TestFont(),
+                    width: 16.5,
+                    children: Yield(Text("TextB", text: "1.")))));
 
-        //////        Box().Width(16.5);
-        //////        Text().Name("TextB")
-        //////            .Text("Test")
-        //////            .Font(new TestFont())
-        //////            .Width(16.5);
-        //////        End<Box>();
-        //////    });
+            Layout();
 
-        //////    Layout();
-
-        //////    Element("TextA").BorderBox.Top.ShouldBe(0.cm());
-        //////    Element("TextA").BorderBox.Left.ShouldBe(2.5.cm());
-        //////    Element("TextB").BorderBox.Top.ShouldBe(0.cm());
-        //////    Element("TextB").BorderBox.Left.ShouldBe(4.5.cm());
-        //////}
+            Element("TextA").BorderBox.Top.ShouldBe(0.cm());
+            Element("TextA").BorderBox.Left.ShouldBe(2.5.cm());
+            Element("TextB").BorderBox.Top.ShouldBe(0.cm());
+            Element("TextB").BorderBox.Left.ShouldBe(4.5.cm());
+        }
 
         //////[Fact(Timeout = 1000)]
         //////public void text_with_forced_width_less_than_calculated_width_loops_endlessly()

@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using DomFx.Api.Builder.Generator;
+using DomFx.Api.Builder.Builders;
+using DomFx.Api.Builder.Styles;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification.DocumentStructure;
 using DomFx.Layouters.Specification.Element;
@@ -11,25 +12,25 @@ namespace DomFx.Tests.Integration
 {
     public class IntegrationTestsBase : ElementBuilder<int>
     {
-        IEnumerable<IElement> elements;
+        IEnumerable<Element> elements;
         List<Page> pages;
 
         public IntegrationTestsBase(UnitOfMeasure unitOfMeasure) : base(unitOfMeasure) {}
 
-        public override IEnumerable<IElement> Build(int source)
+        public override IEnumerable<Element> Build(int source)
         {
             if (elements == null)
-                return Enumerable.Empty<IElement>();
+                return Enumerable.Empty<Element>();
 
             return elements;
         }
 
-        public void Setup(Func<IEnumerable<IElement>> setup)
+        public void Setup(Func<IEnumerable<Element>> setup)
         {
             elements = setup();
         }
 
-        public void Setup(Func<IElement> setup)
+        public void Setup(Func<Element> setup)
         {
             elements = new[] { setup() };
         }
@@ -39,7 +40,7 @@ namespace DomFx.Tests.Integration
             var document = Composer<int>
                 .Document(Composer<int>
                     .Section(content: Composer<int>
-                        .Content(DomFx.Layouters.Specification.Style.Margins.None(), this))
+                        .Content(new Margins(), this))
                 ).Build(42).Single();
 
             var lines = LiningLayouter.Layout(document.Sections.First().Content.Elements, 21.cm()).ToList();
@@ -58,7 +59,6 @@ namespace DomFx.Tests.Integration
 
     public class TestComposer : Composer<int>
     {
-        public TestComposer(UnitOfMeasure unitOfMeasure) : base(unitOfMeasure) {}
         public override IBuilder<int, Document> Compose()
         {
             return null;

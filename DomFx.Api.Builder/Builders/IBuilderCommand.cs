@@ -1,4 +1,4 @@
-﻿namespace DomFx.Api.Builder.Generator
+﻿namespace DomFx.Api.Builder.Builders
 {
     public interface IBuilderCommand<TSource>
     {

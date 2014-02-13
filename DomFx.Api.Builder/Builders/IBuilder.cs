@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DomFx.Api.Builder.Generator
+namespace DomFx.Api.Builder.Builders
 {
     public interface IBuilder<in TSource, out TResult>
     {

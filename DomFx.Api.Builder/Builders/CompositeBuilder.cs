@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace DomFx.Api.Builder.Generator
+namespace DomFx.Api.Builder.Builders
 {
     public class CompositeBuilder<TSource, TResult> : IBuilder<TSource, TResult>
     {

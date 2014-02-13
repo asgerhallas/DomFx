@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Windows.Forms.VisualStyles;
-using DomFx.Api.Builder.Generator;
+﻿using System;
+using System.Collections.Generic;
+using DomFx.Api.Builder.Builders;
+using DomFx.Api.Builder.Styles;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification.DocumentStructure;
 using DomFx.Layouters.Specification.Element;
@@ -10,11 +11,9 @@ namespace DomFx.Tests.Api.Builder
 {
     public class Header : ContentBuilder<int>
     {
-        public Header(IBuilder<int, IElement> builder) 
+        public Header(IBuilder<int, Element> builder) 
             : base(new Margins(1.cm(), 2.cm(), 3.cm(), 4.cm()), builder) {}
     }
-
-    
 
     public class MainContent : ElementBuilder<int>
     {
@@ -25,39 +24,17 @@ namespace DomFx.Tests.Api.Builder
             this.builder = builder;
         }
 
-        public override IEnumerable<IElement> Build(int source)
+        public override IEnumerable<Element> Build(int source)
         {
-            yield return Box(
-                flow: FlowStyle.Float,
-                children: new[]
-                {
-                    Yield(builder, source),
-                    Box()
-                });
+            yield return Box(null, children: Box());
         }
     }
 
     public class MyBoxStyle : IStyle
     {
-        public void Apply(StyleBuilder style)
+        public void Apply(IStyleApplicator style)
         {
             style.Float();
-        }
-    }
-
-
-    public class Toc : Composer<int>
-    {
-        public Toc() : base(UnitOfMeasure.Centimeter) { }
-
-        public override IBuilder<int, Document> Compose()
-        {
-            return Document(
-                Section(
-                    header: Content(builders: new NullBuilder<int, IElement>()),
-                    content: Content(Margins.None(), 
-                        new MainContent(new NullBuilder<int, IElement>())))
-                );
         }
     }
 }

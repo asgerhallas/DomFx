@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using DomFx.Layouters.Specification.DocumentStructure;
 
-namespace DomFx.Api.Builder.Generator
+namespace DomFx.Api.Builder.Builders
 {
     public class DocumentBuilder<TSource> : IBuilder<TSource, Document>
     {

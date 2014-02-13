@@ -1,7 +1,7 @@
 using DomFx.Layouters;
 using DomFx.Layouters.Specification.Style;
 
-namespace DomFx.Api.Builder.Generator
+namespace DomFx.Api.Builder.Styles
 {
     public class NullFont : IFont 
     {
