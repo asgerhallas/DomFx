@@ -68,6 +68,23 @@ namespace DomFx.Tests.Integration
             Element("TextB").BorderBox.Left.ShouldBe(4.5.cm());
         }
 
+        [Fact]
+        public void boxes_with_children_on_same_line_with_margins_misses_margins2()
+        {
+            Setup(() => Yield(
+                Nothing(),
+                Box(font: new TestFont(),
+                    width: 16.5,
+                    children: Yield(Text("TextB", text: "1.")))));
+
+            Layout();
+
+            Element("TextA").BorderBox.Top.ShouldBe(0.cm());
+            Element("TextA").BorderBox.Left.ShouldBe(2.5.cm());
+            Element("TextB").BorderBox.Top.ShouldBe(0.cm());
+            Element("TextB").BorderBox.Left.ShouldBe(4.5.cm());
+        }
+
         //////[Fact(Timeout = 1000)]
         //////public void text_with_forced_width_less_than_calculated_width_loops_endlessly()
         //////{

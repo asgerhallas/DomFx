@@ -19,7 +19,10 @@ namespace DomFx.Api.Builder.Builders
 
         public IEnumerable<Content> Build(TSource source)
         {
-            var elements = from generator in builder.Build(source) select generator(new NullStyle());
+            var elements = from generator in builder.Build(source) 
+                           from element in generator(new NullStyle())
+                           select element;
+
             yield return new Content(margins, elements);
         }
     }

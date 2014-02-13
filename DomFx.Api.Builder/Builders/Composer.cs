@@ -59,7 +59,7 @@ namespace DomFx.Api.Builder.Builders
             return new EnumeratingBuilder<TSource, TCollection, TResult>(source, builder);
         }
 
-        public static IBuilder<TSource, TResult> Null<TSource, TResult>()
+        public static IBuilder<TSource, TResult> Nothing<TSource, TResult>()
         {
             return new NullBuilder<TSource, TResult>();
         }

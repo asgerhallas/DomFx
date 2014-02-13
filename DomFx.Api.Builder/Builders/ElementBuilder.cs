@@ -23,12 +23,12 @@ namespace DomFx.Api.Builder.Builders
 
         protected Element Box(string name, IStyle style, params Element[] children)
         {
-            return Box(name, style, (IEnumerable<Element>)children);
+            return Box(name, style, Yield(children));
         }
 
         protected Element Box(IStyle style, params Element[] children)
         {
-            return Box(null, style, (IEnumerable<Element>)children);
+            return Box(null, style, Yield(children));
         }
 
         protected Element Box(
@@ -40,30 +40,28 @@ namespace DomFx.Api.Builder.Builders
             Borders borders = null,
             FlowStyle? flow = null,
             IFont font = null,
-            IEnumerable<Element> children = null)
+            Element children = null)
         {
             style = new CascadeStyle(
                 style ?? new NullStyle(),
                 MakeStyle(height, width, margins, borders, flow, font));
 
-            return Box(
-                name, style,
-                children ?? Enumerable.Empty<Element>());
+            return Box(name, style, children ?? Nothing());
         }
 
-        protected Element Box(string name, IStyle style, IEnumerable<Element> children)
+        protected Element Box(string name, IStyle style, Element children)
         {
             return Create(elements => new Box(name, elements), style, children);
         }
 
         protected Element Text(string name, string text, IStyle style, params Element[] children)
         {
-            return Text(name, text, style, (IEnumerable<Element>)children);
+            return Text(name, text, style, Yield(children));
         }
 
         protected Element Text(string text, IStyle style, params Element[] children)
         {
-            return Text(null, text, style, (IEnumerable<Element>)children);
+            return Text(null, text, style, Yield(children));
         }
 
         protected Element Text(
@@ -76,30 +74,28 @@ namespace DomFx.Api.Builder.Builders
             Borders borders = null,
             FlowStyle? flow = null,
             IFont font = null,
-            IEnumerable<Element> children = null)
+            Element children = null)
         {
             style = new CascadeStyle(
                 style ?? new NullStyle(),
                 MakeStyle(height, width, margins, borders, flow, font));
 
-            return Text(
-                name, text ?? "", style,
-                children ?? Enumerable.Empty<Element>());
+            return Text(name, text ?? "", style, children ?? Nothing());
         }
 
-        protected Element Text(string name, string text, IStyle style, IEnumerable<Element> children)
+        protected Element Text(string name, string text, IStyle style, Element children)
         {
             return Create(elements => new Text(name, text, elements), style, children);
         }
 
         protected Element Image(string name, IImageSource source, IStyle style, params Element[] children)
         {
-            return Image(name, source, style, (IEnumerable<Element>)children);
+            return Image(name, source, style, Yield(children));
         }
 
         protected Element Image(IImageSource image, IStyle style, params Element[] children)
         {
-            return Image(null, image, style, (IEnumerable<Element>)children);
+            return Image(null, image, style, Yield(children));
         }
 
         protected Element Image(
@@ -112,20 +108,37 @@ namespace DomFx.Api.Builder.Builders
             Borders borders = null,
             FlowStyle? flow = null,
             IFont font = null,
-            IEnumerable<Element> children = null)
+            Element children = null)
         {
             style = new CascadeStyle(
                 style ?? new NullStyle(),
                 MakeStyle(height, width, margins, borders, flow, font));
 
-            return Image(
-                name, source, style,
-                children ?? Enumerable.Empty<Element>());
+            return Image(name, source, style, children ?? Nothing());
         }
 
-        protected Element Image(string name, IImageSource source, IStyle style, IEnumerable<Element> children)
+        protected Element Image(string name, IImageSource source, IStyle style, Element children)
         {
             return Create(elements => new Image(name, source, elements), style, children);
+        }
+
+        protected Element Nothing()
+        {
+            return style => Enumerable.Empty<IElement>();
+        }
+
+        protected Element Yield(IBuilder<TSource, Element> builder, TSource source)
+        {
+            return style => from generator in builder.Build(source)
+                            from element in generator(style)
+                            select element;
+        }
+
+        protected Element Yield(params Element[] children)
+        {
+            return style => from generator in children
+                            from element in generator(style)
+                            select element;
         }
 
         protected Margins Margins(double top, double right, double bottom, double left)
@@ -147,24 +160,14 @@ namespace DomFx.Api.Builder.Builders
                 color);
         }
 
-        protected IEnumerable<Element> Yield(params Element[] children)
-        {
-            return children;
-        }
-
-        protected IEnumerable<Element> Yield(IBuilder<TSource, Element> builder, TSource source)
-        {
-            return builder.Build(source);
-        }
-
-        Element Create<T>(Func<IEnumerable<IElement>, T> factory, IStyle style, IEnumerable<Element> children) where T : Box
+        Element Create<T>(Func<IEnumerable<IElement>, T> factory, IStyle style, Element children) where T : Box
         {
             return ambientStyle =>
             {
                 var effectiveStyle = new CascadeStyle(ambientStyle, style);
-                var box = factory(children.Select(generator => generator(effectiveStyle)));
+                var box = factory(children(style));
                 effectiveStyle.Apply(new StyleApplicator(box));
-                return box;
+                return new[] { box };
             };             
         }
 
