@@ -14,15 +14,12 @@ namespace DomFx.Layouters.Specification.Element
                 throw new ArgumentNullException("Image source must be set");
 
             Source = source;
+            InnerWidth = Source.Width;
+            InnerHeight = Source.Height;
+
             Behavior = new ImageBehavior(this);
         }
 
         public IImageSource Source { get; private set; }
-
-        public void SizeBySource()
-        {
-            InnerWidth = Source.Width;
-            InnerHeight = Source.Height;
-        }
     }
 }

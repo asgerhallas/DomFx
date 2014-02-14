@@ -34,7 +34,7 @@ namespace DomFx.Tests.Integration
             ShowWithiTextSharp();
         }
 
-        [Fact()]
+        [Fact(Skip = "")]
         public void Trythis()
         {
             Setup(() =>
@@ -52,15 +52,16 @@ namespace DomFx.Tests.Integration
             ShowWithiTextSharp();
         }
 
-        //[Fact(Skip = "")]
-        //public void test_i_text_sharp()
-        //{
-        //    //Setup(() => Image().Source(iTextSharpVectorImage.FromPdf(GetType().Assembly.GetManifestResourceStream("DomFx.Tests.test.pdf"))).SizeBySource());
+        [Fact()]
+        public void test_i_text_sharp()
+        {
+            Setup(() => 
+                Image(source:iTextSharpVectorImage.FromPdf(GetType().Assembly.GetManifestResourceStream("DomFx.Tests.Resources.test.pdf"))));
 
-        //    //Layout();
+            Layout();
 
-        //    //ShowWithiTextSharp();
-        //}
+            ShowWithiTextSharp();
+        }
 
         //[Fact]
         //public void end_of_text_is_missing_on_page()
