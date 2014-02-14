@@ -32,9 +32,9 @@ namespace DomFx.Tests.Api.Builder
 
     public class MyBoxStyle : IStyle
     {
-        public void Apply(IStyleApplicator style)
+        public void Apply(IStyleApplicator applicator)
         {
-            style.Float();
+            applicator.Float();
         }
     }
 }

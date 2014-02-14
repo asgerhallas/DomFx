@@ -11,10 +11,28 @@ namespace DomFx.Api.Builder.Styles
             this.overrides = overrides;
         }
 
-        public void Apply(IStyleApplicator style)
+        public void Apply(IStyleApplicator applicator)
         {
-            ambient.Apply(new CascadeStyleApplicator(style));
-            overrides.Apply(style);
+            ambient.Apply(new CascadeStyleApplicator(applicator));
+            overrides.Apply(applicator);
+        }
+    }
+
+    public class CompositeStyle : IStyle
+    {
+        readonly IStyle[] styles;
+
+        public CompositeStyle(params IStyle[] styles)
+        {
+            this.styles = styles;
+        }
+
+        public void Apply(IStyleApplicator applicator)
+        {
+            foreach (var style in styles)
+            {
+                style.Apply(applicator);
+            }
         }
     }
 }

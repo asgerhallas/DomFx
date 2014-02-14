@@ -58,6 +58,15 @@ namespace DomFx.Api.Builder.Styles
             }
         }
 
+        public void HorizontalAlignment(HorizontalAlignment alignment)
+        {
+            var text = element as Text;
+            if (text != null)
+            {
+                text.HorizontalAlignment = alignment;
+            }
+        }
+
         public void Font(IFont font)
         {
             var text = element as Text;

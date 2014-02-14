@@ -14,6 +14,7 @@ namespace DomFx.Api.Builder.Styles
         void Margins(Margins margins);
         void Borders(Borders borders);
         void Color(Color color);
+        void HorizontalAlignment(HorizontalAlignment alignment);
         void Font(IFont font);
     }
 }

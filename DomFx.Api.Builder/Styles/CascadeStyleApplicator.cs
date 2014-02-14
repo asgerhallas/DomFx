@@ -46,6 +46,11 @@ namespace DomFx.Api.Builder.Styles
             applicator.Color(color);
         }
 
+        public void HorizontalAlignment(HorizontalAlignment alignment)
+        {
+            applicator.HorizontalAlignment(alignment);
+        }
+
         public void Font(IFont font)
         {
             applicator.Font(font);

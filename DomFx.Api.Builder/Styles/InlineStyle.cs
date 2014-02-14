@@ -11,9 +11,9 @@ namespace DomFx.Api.Builder.Styles
             this.styler = styler;
         }
 
-        public void Apply(IStyleApplicator style)
+        public void Apply(IStyleApplicator applicator)
         {
-            styler(style);
+            styler(applicator);
         }
     }
 }

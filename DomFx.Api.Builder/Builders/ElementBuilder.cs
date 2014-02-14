@@ -40,12 +40,13 @@ namespace DomFx.Api.Builder.Builders
             Borders borders = null,
             FlowStyle? flow = null,
             Color? color = null,
+            HorizontalAlignment? horizontalAlignment = null,
             IFont font = null,
             Element children = null)
         {
-            style = new CascadeStyle(
+            style = new CompositeStyle(
                 style ?? new NullStyle(),
-                MakeStyle(height, width, margins, borders, flow, color, font));
+                MakeStyle(height, width, margins, borders, flow, color, horizontalAlignment, font));
 
             return Box(name, style, children ?? Nothing());
         }
@@ -75,12 +76,13 @@ namespace DomFx.Api.Builder.Builders
             Borders borders = null,
             FlowStyle? flow = null,
             Color? color = null,
+            HorizontalAlignment? horizontalAlignment = null,
             IFont font = null,
             Element children = null)
         {
-            style = new CascadeStyle(
+            style = new CompositeStyle(
                 style ?? new NullStyle(),
-                MakeStyle(height, width, margins, borders, flow, color, font));
+                MakeStyle(height, width, margins, borders, flow, color, horizontalAlignment, font));
 
             return Text(name, text ?? "", style, children ?? Nothing());
         }
@@ -110,12 +112,13 @@ namespace DomFx.Api.Builder.Builders
             Borders borders = null,
             FlowStyle? flow = null,
             Color? color = null,
+            HorizontalAlignment? horizontalAlignment = null,
             IFont font = null,
             Element children = null)
         {
-            style = new CascadeStyle(
+            style = new CompositeStyle(
                 style ?? new NullStyle(),
-                MakeStyle(height, width, margins, borders, flow, color, font));
+                MakeStyle(height, width, margins, borders, flow, color, horizontalAlignment, font));
 
             return Image(name, source, style, children ?? Nothing());
         }
@@ -180,13 +183,14 @@ namespace DomFx.Api.Builder.Builders
             Margins margins,
             Borders borders,
             FlowStyle? flow,
-            Color? color, 
+            Color? color,
+            HorizontalAlignment? horizontalAlignment,
             IFont font)
         {
             return new InlineStyle(style =>
             {
                 if (flow != null)
-                    style.Flow((FlowStyle) flow);
+                    style.Flow(flow.Value);
                 
                 if (width != null)
                     style.Width(Unit.From(unitOfMeasure, (double) width));
@@ -201,7 +205,10 @@ namespace DomFx.Api.Builder.Builders
                     style.Borders(borders);
 
                 if (color != null)
-                    style.Color((Color) color);
+                    style.Color(color.Value);
+
+                if (horizontalAlignment != null)
+                    style.HorizontalAlignment(horizontalAlignment.Value);
 
                 if (font != null)
                     style.Font(font);

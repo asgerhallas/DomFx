@@ -2,6 +2,6 @@
 {
     public interface IStyle
     {
-        void Apply(IStyleApplicator style);
+        void Apply(IStyleApplicator applicator);
     }
 }
