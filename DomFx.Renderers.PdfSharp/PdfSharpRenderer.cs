@@ -34,9 +34,7 @@ namespace DomFx.Renderers.PdfSharp.WPF
                 foreach (var element in page.Elements)
                 {
                     borderRenderer.Render(canvas, element);
-                    
-                    if (element.Specification is IBackgrounded)
-                        backgroundRenderer.Render(canvas, element);
+                    backgroundRenderer.Render(canvas, element);
 
                     if (element.Specification is Image)
                         imageRenderer.Render(canvas, element);

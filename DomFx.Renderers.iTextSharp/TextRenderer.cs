@@ -15,7 +15,7 @@ namespace DomFx.Renderers.iTextSharp
     {
         public void Render(PdfWriter writer, FixedElement element)
         {
-            var spec = (ITexted) element.Specification;
+            var spec = (Text) element.Specification;
             var columnText = new ColumnText(writer.DirectContent)
             {
                 Leading = (float) ((iTextSharpFont) spec.Font).Leading,
@@ -23,7 +23,7 @@ namespace DomFx.Renderers.iTextSharp
             };
             var font = ((iTextSharpFont)spec.Font).Font;
             font.Color = new global::iTextSharp.text.Color(Color.FromArgb(spec.TextColor.A, spec.TextColor.R, spec.TextColor.G, spec.TextColor.B));
-            var text = spec.TextContent.Replace(Text.PageNumber, writer.CurrentPageNumber.ToString(CultureInfo.InvariantCulture));
+            var text = spec.Content.Replace(Text.PageNumber, writer.CurrentPageNumber.ToString(CultureInfo.InvariantCulture));
             columnText.AddText(new Phrase(text, font));
 
             var horizontalAlignment = 0;

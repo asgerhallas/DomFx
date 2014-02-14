@@ -11,7 +11,7 @@ namespace DomFx.Tests.Integration
     public class IntegrationTestsBase : ElementBuilder<int>
     {
         IEnumerable<Element> elements;
-        List<Page> pages;
+        protected List<Page> pages;
 
         public IntegrationTestsBase(UnitOfMeasure unitOfMeasure) : base(unitOfMeasure) {}
 

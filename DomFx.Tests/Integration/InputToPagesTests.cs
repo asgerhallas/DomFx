@@ -1,44 +1,16 @@
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using DomFx.Layouters;
-using DomFx.Renderers;
-using DomFx.Renderers.PdfSharp.WPF;
 using DomFx.Renderers.iTextSharp;
-using DomFx.Tests.Api.Fluent;
-using DomFx.Tests.Units.Api;
+using DomFx.Renderers.PdfSharp.WPF;
 
 namespace DomFx.Tests.Integration
 {
-    public class InputToPagesTests : content_tests
+    public class InputToPagesTests : IntegrationTestsBase
     {
-        List<Page> pages;
-
-        protected IEnumerable<Page> Layout()
-        {
-            Build();
-            var lines = LiningLayouter.Layout(document.Sections.First().Content.Elements, 21.cm()).ToList();
-            pages = new Layouter(document, 21.cm(), 29.7.cm()).Layout().ToList();
-            return pages;
-        }
-
-        protected FixedElement Element(string name)
-        {
-            var element = pages.SelectMany(x => x.Elements).SingleOrDefault(x => x.Name == name);
-            if (element == null)
-                throw new ElementNotFoundException(name);
-            return element;
-        }
-
-        protected int PageOfElement(string name)
-        {
-            var page = pages.SingleOrDefault(x => x.Elements.Any(e => e.Name == name));
-            if (page == null)
-                throw new ElementNotFoundException(name);
-            return pages.IndexOf(page) + 1;
-        }
+        public InputToPagesTests(UnitOfMeasure unitOfMeasure) : base(unitOfMeasure) {}
 
         protected void ShowWithPdfSharp()
         {

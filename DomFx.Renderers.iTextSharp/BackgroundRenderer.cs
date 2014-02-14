@@ -1,6 +1,7 @@
 using System.Windows.Media;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.Element;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Color = System.Drawing.Color;
@@ -11,7 +12,7 @@ namespace DomFx.Renderers.iTextSharp
     {
         public void Render(PdfWriter writer, FixedElement element)
         {
-            var spec = (IBackgrounded) element.Specification;
+            var spec = (Box) element.Specification;
 
             if (spec.BackgroundColor == Colors.Transparent)
                 return;

@@ -3,9 +3,11 @@ using System.IO;
 using System.Linq;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.Element;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Document = iTextSharp.text.Document;
+using Image = DomFx.Layouters.Specification.Element.Image;
 
 namespace DomFx.Renderers.iTextSharp
 {
@@ -38,14 +40,12 @@ namespace DomFx.Renderers.iTextSharp
                 foreach (var element in page.Elements)
                 {
                     borderRenderer.Render(writer, element);
+                    backgroundRenderer.Render(writer, element);
 
-                    if (element.Specification is IBackgrounded)
-                        backgroundRenderer.Render(writer, element);
-
-                    if (element.Specification is IImaged)
+                    if (element.Specification is Image)
                         imageRenderer.Render(writer, element);
 
-                    if (element.Specification is ITexted)
+                    if (element.Specification is Text)
                         textRenderer.Render(writer, element);
                 }
                 currentPageNumber++;

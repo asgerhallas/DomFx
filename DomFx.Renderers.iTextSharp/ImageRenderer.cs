@@ -1,8 +1,8 @@
 using System;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.Element;
 using iTextSharp.text.pdf;
-using Image = iTextSharp.text.Image;
 
 namespace DomFx.Renderers.iTextSharp
 {
@@ -10,7 +10,7 @@ namespace DomFx.Renderers.iTextSharp
     {
         public void Render(PdfWriter writer, FixedElement element)
         {
-            var spec = (IImaged) element.Specification;
+            var spec = (Image) element.Specification;
 
             var image = GetImage(writer, spec);
 
@@ -23,7 +23,7 @@ namespace DomFx.Renderers.iTextSharp
             directContent.AddTemplate(template, (float)element.InnerBox.Left.Points, (float)(writer.PageSize.Height - element.InnerBox.Bottom.Points));
         }
 
-        static Image GetImage(PdfWriter writer, IImaged spec)
+        static global::iTextSharp.text.Image GetImage(PdfWriter writer, Image spec)
         {
             if (spec.Source is iTextSharpImage)
             {

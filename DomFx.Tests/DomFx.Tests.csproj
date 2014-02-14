@@ -86,7 +86,9 @@
     <Compile Include="Integration\Bugs.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Integration\InputToPagesTests.cs" />
     <Compile Include="Integration\IntegrationTestsBase.cs" />
+    <Compile Include="Integration\Tryouts.cs" />
     <Compile Include="Layouters\Paging\LayoutedElementTests.cs" />
     <Compile Include="Layouters\Specification\ImageTests.cs" />
     <Compile Include="Fakes\TestImageSource.cs" />

@@ -47,7 +47,6 @@
     <Compile Include="ElementsLayouter.cs" />
     <Compile Include="KeepCurrent.cs" />
     <Compile Include="Actions\Move.cs" />
-    <Compile Include="Specification\IBackgrounded.cs" />
     <Compile Include="Behaviors\IBehavior.cs" />
     <Compile Include="Behaviors\CompositeBehavior.cs" />
     <Compile Include="Specification\Element\Element.cs" />
@@ -63,7 +62,6 @@
     <Compile Include="Behaviors\IHeightBehavior.cs" />
     <Compile Include="Specification\Element\Image.cs" />
     <Compile Include="Specification\ImageBehavior.cs" />
-    <Compile Include="Specification\IImaged.cs" />
     <Compile Include="Specification\IImageSource.cs" />
     <Compile Include="Behaviors\MaintainWidthAspectRatioBehavior.cs" />
     <Compile Include="Behaviors\MaintainHeightAspectRatioBehavior.cs" />
@@ -74,7 +72,6 @@
     <Compile Include="Behaviors\StandardWidthBehavior.cs" />
     <Compile Include="Specification\Element\Text.cs" />
     <Compile Include="Behaviors\TextBehavior.cs" />
-    <Compile Include="Specification\ITexted.cs" />
     <Compile Include="Behaviors\TextHeightBehavior.cs" />
     <Compile Include="Specification\TextPlaceholder.cs" />
     <Compile Include="Specification\TextPlaceholderReplacement.cs" />

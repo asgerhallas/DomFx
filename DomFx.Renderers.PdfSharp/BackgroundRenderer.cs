@@ -1,6 +1,7 @@
 using System.Windows.Media;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification;
+using DomFx.Layouters.Specification.Element;
 using PdfSharp.Drawing;
 
 namespace DomFx.Renderers.PdfSharp.WPF
@@ -9,7 +10,7 @@ namespace DomFx.Renderers.PdfSharp.WPF
     {
         public void Render(XGraphics gfx, FixedElement element)
         {
-            var spec = (IBackgrounded) element.Specification;
+            var spec = (Box) element.Specification;
 
             if (spec.BackgroundColor != Colors.Transparent)
             {
