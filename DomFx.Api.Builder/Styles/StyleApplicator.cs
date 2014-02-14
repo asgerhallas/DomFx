@@ -1,3 +1,4 @@
+using System.Windows.Media;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification.Element;
 using DomFx.Layouters.Specification.Style;
@@ -46,6 +47,15 @@ namespace DomFx.Api.Builder.Styles
         public void Borders(Borders borders)
         {
             element.Borders = borders;
+        }
+
+        public void Color(Color color)
+        {
+            var text = element as Text;
+            if (text != null)
+            {
+                text.TextColor = color;
+            }
         }
 
         public void Font(IFont font)

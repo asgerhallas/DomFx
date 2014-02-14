@@ -39,12 +39,13 @@ namespace DomFx.Api.Builder.Builders
             Margins margins = null,
             Borders borders = null,
             FlowStyle? flow = null,
+            Color? color = null,
             IFont font = null,
             Element children = null)
         {
             style = new CascadeStyle(
                 style ?? new NullStyle(),
-                MakeStyle(height, width, margins, borders, flow, font));
+                MakeStyle(height, width, margins, borders, flow, color, font));
 
             return Box(name, style, children ?? Nothing());
         }
@@ -73,12 +74,13 @@ namespace DomFx.Api.Builder.Builders
             Margins margins = null,
             Borders borders = null,
             FlowStyle? flow = null,
+            Color? color = null,
             IFont font = null,
             Element children = null)
         {
             style = new CascadeStyle(
                 style ?? new NullStyle(),
-                MakeStyle(height, width, margins, borders, flow, font));
+                MakeStyle(height, width, margins, borders, flow, color, font));
 
             return Text(name, text ?? "", style, children ?? Nothing());
         }
@@ -107,12 +109,13 @@ namespace DomFx.Api.Builder.Builders
             Margins margins = null,
             Borders borders = null,
             FlowStyle? flow = null,
+            Color? color = null,
             IFont font = null,
             Element children = null)
         {
             style = new CascadeStyle(
                 style ?? new NullStyle(),
-                MakeStyle(height, width, margins, borders, flow, font));
+                MakeStyle(height, width, margins, borders, flow, color, font));
 
             return Image(name, source, style, children ?? Nothing());
         }
@@ -177,6 +180,7 @@ namespace DomFx.Api.Builder.Builders
             Margins margins,
             Borders borders,
             FlowStyle? flow,
+            Color? color, 
             IFont font)
         {
             return new InlineStyle(style =>
@@ -195,6 +199,9 @@ namespace DomFx.Api.Builder.Builders
                 
                 if (borders != null)
                     style.Borders(borders);
+
+                if (color != null)
+                    style.Color((Color) color);
 
                 if (font != null)
                     style.Font(font);
