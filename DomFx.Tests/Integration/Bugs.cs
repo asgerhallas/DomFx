@@ -1,7 +1,5 @@
 using DomFx.Layouters;
-using DomFx.Tests.Api.Builder;
 using DomFx.Tests.Fakes;
-using iTextSharp.text;
 using Shouldly;
 using Xunit;
 
@@ -56,23 +54,6 @@ namespace DomFx.Tests.Integration
                     font: new TestFont(),
                     width: 2,
                     children: Yield(Text("TextA", text: "1."))),
-                Box(font: new TestFont(),
-                    width: 16.5,
-                    children: Yield(Text("TextB", text: "1.")))));
-
-            Layout();
-
-            Element("TextA").BorderBox.Top.ShouldBe(0.cm());
-            Element("TextA").BorderBox.Left.ShouldBe(2.5.cm());
-            Element("TextB").BorderBox.Top.ShouldBe(0.cm());
-            Element("TextB").BorderBox.Left.ShouldBe(4.5.cm());
-        }
-
-        [Fact]
-        public void boxes_with_children_on_same_line_with_margins_misses_margins2()
-        {
-            Setup(() => Yield(
-                Nothing(),
                 Box(font: new TestFont(),
                     width: 16.5,
                     children: Yield(Text("TextB", text: "1.")))));
