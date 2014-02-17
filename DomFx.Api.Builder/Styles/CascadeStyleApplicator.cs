@@ -13,18 +13,6 @@ namespace DomFx.Api.Builder.Styles
             this.applicator = applicator;
         }
 
-        public void Flow(FlowStyle flow)
-        {
-        }
-
-        public void Float()
-        {
-        }
-
-        public void Clear()
-        {
-        }
-
         public void Width(Unit width)
         {
         }
@@ -38,6 +26,26 @@ namespace DomFx.Api.Builder.Styles
         }
 
         public void Borders(Borders borders)
+        {
+        }
+
+        public void Flow(FlowStyle flow)
+        {
+        }
+
+        public void Float()
+        {
+        }
+
+        public void Clear()
+        {
+        }
+
+        public void FollowLineHeight()
+        {
+        }
+
+        public void KeepWithNextLine()
         {
         }
 

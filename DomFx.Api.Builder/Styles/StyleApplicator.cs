@@ -14,21 +14,6 @@ namespace DomFx.Api.Builder.Styles
             this.element = element;
         }
 
-        public void Flow(FlowStyle flow)
-        {
-            element.Flow = flow;
-        }
-
-        public void Float()
-        {
-            Flow(FlowStyle.Float);
-        }
-
-        public void Clear()
-        {
-            Flow(FlowStyle.Clear);
-        }
-
         public void Width(Unit width)
         {
             element.InnerWidth = width;
@@ -47,6 +32,31 @@ namespace DomFx.Api.Builder.Styles
         public void Borders(Borders borders)
         {
             element.Borders = borders;
+        }
+
+        public void Flow(FlowStyle flow)
+        {
+            element.Flow = flow;
+        }
+
+        public void Float()
+        {
+            Flow(FlowStyle.Float);
+        }
+
+        public void Clear()
+        {
+            Flow(FlowStyle.Clear);
+        }
+
+        public void FollowLineHeight()
+        {
+            element.FollowLineHeight = true;
+        }
+
+        public void KeepWithNextLine()
+        {
+            element.KeepWithNextLine = true;
         }
 
         public void Color(Color color)
