@@ -13,7 +13,12 @@ namespace DomFx.Api.Builder.Styles
         void Flow(FlowStyle flow);
         void Float();
         void Clear();
+        void Breakable(bool breakability);
+        void Breakable();
+        void Unbreakable();
+        void FollowLineHeight(bool followLineHeight);
         void FollowLineHeight();
+        void KeepWithNextLine(bool keepWithNextLine);
         void KeepWithNextLine();
         void Color(Color color);
         void HorizontalAlignment(HorizontalAlignment alignment);

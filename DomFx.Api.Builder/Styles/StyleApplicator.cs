@@ -49,14 +49,39 @@ namespace DomFx.Api.Builder.Styles
             Flow(FlowStyle.Clear);
         }
 
+        public void Breakable(bool breakability)
+        {
+            element.Breakable = breakability;
+        }
+
+        public void Breakable()
+        {
+            Breakable(true);
+        }
+
+        public void Unbreakable()
+        {
+            Breakable(false);
+        }
+
+        public void FollowLineHeight(bool followLineHeight)
+        {
+            element.FollowLineHeight = followLineHeight;
+        }
+
         public void FollowLineHeight()
         {
-            element.FollowLineHeight = true;
+            FollowLineHeight(true);
+        }
+
+        public void KeepWithNextLine(bool keepWithNextLine)
+        {
+            element.KeepWithNextLine = keepWithNextLine;
         }
 
         public void KeepWithNextLine()
         {
-            element.KeepWithNextLine = true;
+            KeepWithNextLine(true);
         }
 
         public void Color(Color color)

@@ -41,7 +41,27 @@ namespace DomFx.Api.Builder.Styles
         {
         }
 
+        public void Breakable(bool breakability)
+        {
+        }
+
+        public void Breakable()
+        {
+        }
+
+        public void Unbreakable()
+        {
+        }
+
+        public void FollowLineHeight(bool followLineHeight)
+        {
+        }
+
         public void FollowLineHeight()
+        {
+        }
+
+        public void KeepWithNextLine(bool keepWithNextLine)
         {
         }
 

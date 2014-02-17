@@ -39,6 +39,7 @@ namespace DomFx.Api.Builder.Builders
             Margins margins = null,
             Borders borders = null,
             FlowStyle? flow = null,
+            bool? breakable = null,
             bool? followLineHeight = null,
             bool? keepWithNextLine = null,
             Color? color = null,
@@ -48,7 +49,7 @@ namespace DomFx.Api.Builder.Builders
         {
             style = new CompositeStyle(
                 style ?? new NullStyle(),
-                MakeStyle(height, width, margins, borders, flow, followLineHeight, keepWithNextLine, color, horizontalAlignment, font));
+                MakeStyle(height, width, margins, borders, flow, breakable, followLineHeight, keepWithNextLine, color, horizontalAlignment, font));
 
             return Box(name, style, children ?? Nothing());
         }
@@ -77,6 +78,7 @@ namespace DomFx.Api.Builder.Builders
             Margins margins = null,
             Borders borders = null,
             FlowStyle? flow = null,
+            bool? breakable = null,
             bool? followLineHeight = null,
             bool? keepWithNextLine = null,
             Color? color = null,
@@ -86,7 +88,7 @@ namespace DomFx.Api.Builder.Builders
         {
             style = new CompositeStyle(
                 style ?? new NullStyle(),
-                MakeStyle(height, width, margins, borders, flow, followLineHeight, keepWithNextLine, color, horizontalAlignment, font));
+                MakeStyle(height, width, margins, borders, flow, breakable, followLineHeight, keepWithNextLine, color, horizontalAlignment, font));
 
             return Text(name, text ?? "", style, children ?? Nothing());
         }
@@ -115,6 +117,7 @@ namespace DomFx.Api.Builder.Builders
             Margins margins = null,
             Borders borders = null,
             FlowStyle? flow = null,
+            bool? breakable = null,
             bool? followLineHeight = null,
             bool? keepWithNextLine = null,
             Color? color = null,
@@ -124,7 +127,7 @@ namespace DomFx.Api.Builder.Builders
         {
             style = new CompositeStyle(
                 style ?? new NullStyle(),
-                MakeStyle(height, width, margins, borders, flow, followLineHeight, keepWithNextLine, color, horizontalAlignment, font));
+                MakeStyle(height, width, margins, borders, flow, breakable, followLineHeight, keepWithNextLine, color, horizontalAlignment, font));
 
             return Image(name, source, style, children ?? Nothing());
         }
@@ -189,6 +192,7 @@ namespace DomFx.Api.Builder.Builders
             Margins margins,
             Borders borders,
             FlowStyle? flow,
+            bool? breakable,
             bool? followLineHeight,
             bool? keepWithNextLine,
             Color? color,
@@ -212,11 +216,14 @@ namespace DomFx.Api.Builder.Builders
                 if (flow != null)
                     style.Flow(flow.Value);
 
-                if (followLineHeight != null && followLineHeight.Value)
-                    style.FollowLineHeight();
+                if (breakable != null)
+                    style.Breakable(breakable.Value);
 
-                if (keepWithNextLine != null && keepWithNextLine.Value)
-                    style.KeepWithNextLine();
+                if (followLineHeight != null)
+                    style.FollowLineHeight(followLineHeight.Value);
+
+                if (keepWithNextLine != null)
+                    style.KeepWithNextLine(keepWithNextLine.Value);
                 
                 if (color != null)
                     style.Color(color.Value);
