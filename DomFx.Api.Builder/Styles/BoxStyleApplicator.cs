@@ -5,11 +5,11 @@ using DomFx.Layouters.Specification.Style;
 
 namespace DomFx.Api.Builder.Styles
 {
-    public class StyleApplicator : IStyleApplicator
+    public class BoxStyleApplicator : IStyleApplicator
     {
         readonly IElement element;
 
-        public StyleApplicator(IElement element)
+        public BoxStyleApplicator(IElement element)
         {
             this.element = element;
         }
@@ -110,5 +110,10 @@ namespace DomFx.Api.Builder.Styles
                 text.Font = font;
             }
         }
+    }
+
+    public class TextStyleApplicator : 
+    {
+        
     }
 }

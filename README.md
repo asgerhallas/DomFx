@@ -1,4 +1,4 @@
 DomFx
 =====
 
-A document rendering framework
+A document layouting and rendering library.
