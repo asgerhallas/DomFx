@@ -42,6 +42,7 @@ namespace DomFx.Api.Builder.Builders
             bool? breakable = null,
             bool? followLineHeight = null,
             bool? keepWithNextLine = null,
+            Color? backgroundColor = null,
             Color? color = null,
             HorizontalAlignment? horizontalAlignment = null,
             IFont font = null,
@@ -49,7 +50,7 @@ namespace DomFx.Api.Builder.Builders
         {
             style = new CompositeStyle(
                 style ?? new NullStyle(),
-                MakeStyle(height, width, margins, borders, flow, breakable, followLineHeight, keepWithNextLine, color, horizontalAlignment, font));
+                MakeStyle(height, width, margins, borders, flow, breakable, followLineHeight, keepWithNextLine, backgroundColor, color, horizontalAlignment, font));
 
             return Box(name, style, children ?? Nothing());
         }
@@ -81,6 +82,7 @@ namespace DomFx.Api.Builder.Builders
             bool? breakable = null,
             bool? followLineHeight = null,
             bool? keepWithNextLine = null,
+            Color? backgroundColor = null,
             Color? color = null,
             HorizontalAlignment? horizontalAlignment = null,
             IFont font = null,
@@ -88,7 +90,7 @@ namespace DomFx.Api.Builder.Builders
         {
             style = new CompositeStyle(
                 style ?? new NullStyle(),
-                MakeStyle(height, width, margins, borders, flow, breakable, followLineHeight, keepWithNextLine, color, horizontalAlignment, font));
+                MakeStyle(height, width, margins, borders, flow, breakable, followLineHeight, keepWithNextLine, backgroundColor, color, horizontalAlignment, font));
 
             return Text(name, text ?? "", style, children ?? Nothing());
         }
@@ -120,6 +122,7 @@ namespace DomFx.Api.Builder.Builders
             bool? breakable = null,
             bool? followLineHeight = null,
             bool? keepWithNextLine = null,
+            Color? backgroundColor = null,
             Color? color = null,
             HorizontalAlignment? horizontalAlignment = null,
             IFont font = null,
@@ -127,7 +130,7 @@ namespace DomFx.Api.Builder.Builders
         {
             style = new CompositeStyle(
                 style ?? new NullStyle(),
-                MakeStyle(height, width, margins, borders, flow, breakable, followLineHeight, keepWithNextLine, color, horizontalAlignment, font));
+                MakeStyle(height, width, margins, borders, flow, breakable, followLineHeight, keepWithNextLine, backgroundColor, color, horizontalAlignment, font));
 
             return Image(name, source, style, children ?? Nothing());
         }
@@ -181,22 +184,23 @@ namespace DomFx.Api.Builder.Builders
             {
                 var effectiveStyle = new CascadeStyle(ambientStyle, style);
                 var box = factory(children(style));
-                effectiveStyle.Apply(new StyleApplicator(box));
+                effectiveStyle.Apply(new BoxStyleApplicator(box));
                 return new[] { box };
             };             
         }
 
         IStyle MakeStyle(
-            double? height,
-            double? width,
-            Margins margins,
-            Borders borders,
-            FlowStyle? flow,
-            bool? breakable,
-            bool? followLineHeight,
-            bool? keepWithNextLine,
-            Color? color,
-            HorizontalAlignment? horizontalAlignment,
+            double? height, 
+            double? width, 
+            Margins margins, 
+            Borders borders, 
+            FlowStyle? flow, 
+            bool? breakable, 
+            bool? followLineHeight, 
+            bool? keepWithNextLine, 
+            Color? backgroundColor, 
+            Color? color, 
+            HorizontalAlignment? horizontalAlignment, 
             IFont font)
         {
             return new InlineStyle(style =>
@@ -224,7 +228,10 @@ namespace DomFx.Api.Builder.Builders
 
                 if (keepWithNextLine != null)
                     style.KeepWithNextLine(keepWithNextLine.Value);
-                
+
+                if (backgroundColor != null)
+                    style.BackgroundColor(backgroundColor.Value);
+
                 if (color != null)
                     style.Color(color.Value);
 

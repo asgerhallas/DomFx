@@ -20,6 +20,7 @@ namespace DomFx.Api.Builder.Styles
         void FollowLineHeight();
         void KeepWithNextLine(bool keepWithNextLine);
         void KeepWithNextLine();
+        void BackgroundColor(Color color);
         void Color(Color color);
         void HorizontalAlignment(HorizontalAlignment alignment);
         void Font(IFont font);

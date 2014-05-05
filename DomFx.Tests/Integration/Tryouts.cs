@@ -1,11 +1,7 @@
 ﻿using System.IO;
 using System.Windows.Media;
-using DomFx.Api;
 using DomFx.Layouters;
-using DomFx.Layouters.Specification;
-using DomFx.Layouters.Specification.Element;
 using DomFx.Renderers.iTextSharp;
-using DomFx.Tests.Fakes;
 using Xunit;
 using iTextSharp.text.pdf;
 
@@ -52,11 +48,23 @@ namespace DomFx.Tests.Integration
             ShowWithiTextSharp();
         }
 
-        [Fact()]
+        [Fact]
         public void test_i_text_sharp()
         {
             Setup(() => 
                 Image(source:iTextSharpVectorImage.FromPdf(GetType().Assembly.GetManifestResourceStream("DomFx.Tests.Resources.test.pdf"))));
+
+            Layout();
+
+            ShowWithiTextSharp();
+        }
+
+
+        [Fact]
+        public void leading_tryouts()
+        {
+            Setup(() =>
+                Box(height: 10, width: 10, backgroundColor: Colors.Aqua));
 
             Layout();
 

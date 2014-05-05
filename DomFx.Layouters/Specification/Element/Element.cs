@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Windows.Media;
 using DomFx.Layouters.Behaviors;
 using DomFx.Layouters.Specification.Style;
 
@@ -19,6 +20,7 @@ namespace DomFx.Layouters.Specification.Element
         bool FollowLineHeight { get; set; }
         Unit InnerHeight { get; set; }
         Unit InnerWidth { get; set; }
+        Color BackgroundColor { get; set; }
         CompositeBehavior Behavior { get; set; }
 
         Edge Edge { get; }

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using DomFx.Api.Builder.Builders;
 using DomFx.Api.Builder.Styles;
 using DomFx.Layouters;
-using DomFx.Layouters.Specification.DocumentStructure;
 using DomFx.Layouters.Specification.Element;
 using DomFx.Layouters.Specification.Style;
 

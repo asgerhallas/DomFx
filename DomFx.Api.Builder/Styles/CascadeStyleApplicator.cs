@@ -69,6 +69,10 @@ namespace DomFx.Api.Builder.Styles
         {
         }
 
+        public void BackgroundColor(Color color)
+        {
+        }
+
         public void Color(Color color)
         {
             applicator.Color(color);

@@ -41,6 +41,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Builders\Element.cs" />
+    <Compile Include="Mutator\Composer.cs" />
+    <Compile Include="Mutator\CompositeBuilder.cs" />
+    <Compile Include="Mutator\ConditionalBuilder.cs" />
+    <Compile Include="Mutator\EnumeratingBuilder.cs" />
+    <Compile Include="Mutator\IBuilder.cs" />
+    <Compile Include="Mutator\NullBuilder.cs" />
+    <Compile Include="Mutator\TransformationBuilder.cs" />
+    <Compile Include="Mutator\TupleBuilder.cs" />
+    <Compile Include="Mutator\UntupleBuilder.cs" />
+    <Compile Include="Styles\BoxStyleApplicator.cs" />
     <Compile Include="Styles\CascadeStyle.cs" />
     <Compile Include="Builders\Composer.cs" />
     <Compile Include="Builders\CompositeBuilder.cs" />
@@ -52,6 +62,7 @@
     <Compile Include="Builders\IBuilder.cs" />
     <Compile Include="Builders\IBuilderCommand.cs" />
     <Compile Include="Styles\CascadeStyleApplicator.cs" />
+    <Compile Include="Styles\CompositeStyle.cs" />
     <Compile Include="Styles\InlineStyle.cs" />
     <Compile Include="Styles\IStyle.cs" />
     <Compile Include="Builders\NullBuilder.cs" />
@@ -62,7 +73,6 @@
     <Compile Include="IProjection.cs" />
     <Compile Include="ISpecification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Styles\StyleApplicator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DomFx.Layouters\DomFx.Layouters.csproj">

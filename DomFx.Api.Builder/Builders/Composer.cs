@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using DomFx.Layouters.Specification.DocumentStructure;
-using DomFx.Layouters.Specification.Element;
 using DomFx.Layouters.Specification.Style;
 
 namespace DomFx.Api.Builder.Builders

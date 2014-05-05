@@ -84,6 +84,11 @@ namespace DomFx.Api.Builder.Styles
             KeepWithNextLine(true);
         }
 
+        public void BackgroundColor(Color color)
+        {
+            element.BackgroundColor = color;
+        }
+
         public void Color(Color color)
         {
             var text = element as Text;
@@ -112,8 +117,8 @@ namespace DomFx.Api.Builder.Styles
         }
     }
 
-    public class TextStyleApplicator : 
-    {
+    //public class TextStyleApplicator : 
+    //{
         
-    }
+    //}
 }
