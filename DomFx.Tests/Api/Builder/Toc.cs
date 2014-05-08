@@ -26,7 +26,7 @@ namespace DomFx.Tests.Api.Builder
 
         public override IEnumerable<Element> Build(int source)
         {
-            yield return Box(null, children: Box());
+            yield return Box(null, children: Yield(Box()));
         }
     }
 

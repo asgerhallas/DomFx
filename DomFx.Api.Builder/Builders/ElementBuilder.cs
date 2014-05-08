@@ -154,6 +154,11 @@ namespace DomFx.Api.Builder.Builders
 
         protected Element Yield(params Element[] children)
         {
+            return Yield((IEnumerable<Element>) children);
+        }
+
+        protected Element Yield(IEnumerable<Element> children)
+        {
             return style => from generator in children
                             from element in generator(style)
                             select element;
