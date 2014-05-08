@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using DomFx.Api.Builder;
 using DomFx.Api.Builder.Builders;
 using DomFx.Api.Builder.Styles;
 using DomFx.Layouters;
+using DomFx.Layouters.Specification.DocumentStructure;
 using DomFx.Layouters.Specification.Element;
 using DomFx.Layouters.Specification.Style;
 
@@ -15,9 +17,9 @@ namespace DomFx.Tests.Api.Builder
 
     public class MainContent : ElementBuilder<int>
     {
-        readonly IBuilder<int, IElement> builder;
+        readonly IBuilder<int, Element> builder;
         
-        public MainContent(IBuilder<int, IElement> builder) : base(UnitOfMeasure.Centimeter)
+        public MainContent(IBuilder<int, Element> builder) : base(UnitOfMeasure.Centimeter)
         {
             this.builder = builder;
         }
@@ -28,11 +30,41 @@ namespace DomFx.Tests.Api.Builder
         }
     }
 
+    public class MainContentString : ElementBuilder<string>
+    {
+        public MainContentString() : base(UnitOfMeasure.Centimeter) { }
+
+        public override IEnumerable<Element> Build(string source)
+        {
+            yield return Box(null, children: Box());
+        }
+    }
+
     public class MyBoxStyle : IStyle
     {
         public void Apply(IStyleApplicator applicator)
         {
             applicator.Float();
+        }
+    }
+
+    public class Toc : Composer<int>
+    {
+        public override IBuilder<int, Document> Compose()
+        {
+            return Document(
+                Section(
+                    content: Content(new MainContent(
+                        With(new StringFromSource(), Compose(
+                            new MainContentString()))))
+                    ));
+        }
+    }
+
+    public class StringFromSource : IProjection<int, string> {
+        public string Project(int source)
+        {
+            return source.ToString();
         }
     }
 }

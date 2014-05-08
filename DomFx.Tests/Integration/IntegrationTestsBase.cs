@@ -54,13 +54,4 @@ namespace DomFx.Tests.Integration
             return element;
         }
     }
-
-    public class TestComposer : Composer<int>
-    {
-        public override IBuilder<int, Document> Compose()
-        {
-            return null;
-        }
-    }
-
 }

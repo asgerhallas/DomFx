@@ -41,15 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Builders\Element.cs" />
-    <Compile Include="Mutator\Composer.cs" />
-    <Compile Include="Mutator\CompositeBuilder.cs" />
-    <Compile Include="Mutator\ConditionalBuilder.cs" />
-    <Compile Include="Mutator\EnumeratingBuilder.cs" />
-    <Compile Include="Mutator\IBuilder.cs" />
-    <Compile Include="Mutator\NullBuilder.cs" />
-    <Compile Include="Mutator\TransformationBuilder.cs" />
-    <Compile Include="Mutator\TupleBuilder.cs" />
-    <Compile Include="Mutator\UntupleBuilder.cs" />
+    <Compile Include="Builders\ProjectionBuilder.cs" />
     <Compile Include="Styles\BoxStyleApplicator.cs" />
     <Compile Include="Styles\CascadeStyle.cs" />
     <Compile Include="Builders\Composer.cs" />
@@ -58,7 +50,7 @@
     <Compile Include="Builders\ContentBuilder.cs" />
     <Compile Include="Builders\DocumentBuilder.cs" />
     <Compile Include="Builders\ElementBuilder.cs" />
-    <Compile Include="Builders\EnumeratingBuilder.cs" />
+    <Compile Include="Builders\EnumerationBuilder.cs" />
     <Compile Include="Builders\IBuilder.cs" />
     <Compile Include="Builders\IBuilderCommand.cs" />
     <Compile Include="Styles\CascadeStyleApplicator.cs" />
@@ -71,7 +63,6 @@
     <Compile Include="Styles\NullStyle.cs" />
     <Compile Include="Builders\SectionBuilder.cs" />
     <Compile Include="IProjection.cs" />
-    <Compile Include="ISpecification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

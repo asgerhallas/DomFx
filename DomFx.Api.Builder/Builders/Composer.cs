@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DomFx.Layouters.Specification.DocumentStructure;
 using DomFx.Layouters.Specification.Style;
 
@@ -45,17 +46,25 @@ namespace DomFx.Api.Builder.Builders
             return new CompositeBuilder<TSource, TResult>(builders);
         }
 
-        public static IBuilder<TSource, TResult> Conditional<TSource, TResult>(
-            ISpecification<TSource> specification, IBuilder<TSource, TResult> then)
+        public static IBuilder<TSource, TResult> With<TSource, TMiddle, TResult>(
+            IProjection<TSource, TMiddle> selector,
+            IBuilder<TMiddle, TResult> builder)
+        {
+            return new ProjectionBuilder<TSource, TMiddle, TResult>(selector, builder);
+        }
+        
+        public static IBuilder<TSource, TResult> If<TSource, TResult>(
+            IProjection<TSource, bool> specification, 
+            IBuilder<TSource, TResult> then)
         {
             return new ConditionalBuilder<TSource, TResult>(specification, then);
         }
 
-        public static IBuilder<TSource, TResult> Enumerate<TSource, TCollection, TResult>(
+        public static IBuilder<TSource, TResult> Each<TSource, TCollection, TResult>(
             IProjection<TSource, IEnumerable<TCollection>> source,
             IBuilder<TCollection, TResult> builder)
         {
-            return new EnumeratingBuilder<TSource, TCollection, TResult>(source, builder);
+            return new EnumerationBuilder<TSource, TCollection, TResult>(source, builder);
         }
 
         public static IBuilder<TSource, TResult> Nothing<TSource, TResult>()
