@@ -24,5 +24,6 @@ namespace DomFx.Api.Builder.Styles
         void Color(Color color);
         void HorizontalAlignment(HorizontalAlignment alignment);
         void Font(IFont font);
+        void Tail(string character);
     }
 }

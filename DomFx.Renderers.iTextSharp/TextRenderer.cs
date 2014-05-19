@@ -67,12 +67,12 @@ namespace DomFx.Renderers.iTextSharp
                 columnText.Go(true);
             }
 
-            if (!string.IsNullOrEmpty(spec.Leader) && element.InnerBox.Height.Points < ((iTextSharpFont) spec.Font).Leading*2)
+            if (!string.IsNullOrEmpty(spec.Tail) && element.InnerBox.Height.Points < ((iTextSharpFont) spec.Font).Leading*2)
             {
                 var leader = "";
                 var textWidth = CalculateTextWidth(text, element, font, (float) ((iTextSharpFont)spec.Font).Leading);
                 for (var i = 0; i < 1000; i++)
-                    leader += spec.Leader;
+                    leader += spec.Tail;
 
                 var leaderColumnText = new ColumnText(writer.DirectContent);
                 leaderColumnText.UseAscender = true;

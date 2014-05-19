@@ -29,6 +29,6 @@ namespace DomFx.Layouters.Specification.Element
         public Color TextColor { get; set; }
         public HorizontalAlignment HorizontalAlignment { get; set; }
         public VerticalAlignment VerticalAlignment { get; set; }
-        public string Leader { get; set; }
+        public string Tail { get; set; }
     }
 }

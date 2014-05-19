@@ -87,5 +87,9 @@ namespace DomFx.Api.Builder.Styles
         {
             applicator.Font(font);
         }
+
+        public void Tail(string character)
+        {
+        }
     }
 }

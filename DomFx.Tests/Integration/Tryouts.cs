@@ -63,8 +63,13 @@ namespace DomFx.Tests.Integration
         [Fact]
         public void leading_tryouts()
         {
+
+            var manifestResourceStream = GetType().Assembly.GetManifestResourceStream("DomFx.Tests.Resources.DINOffc.ttf");
+            var readFully = ReadFully(manifestResourceStream);
+            var baseFont = BaseFont.CreateFont("DINOffc.ttf", BaseFont.CP1252, true, true, readFully, null);
+
             Setup(() =>
-                Box(height: 10, width: 10, backgroundColor: Colors.Aqua));
+                Text(text: "asger", width: 20, backgroundColor: Colors.Aqua, tail: ".", font: new iTextSharpFont(baseFont, 12, 12)));
 
             Layout();
 

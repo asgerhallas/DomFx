@@ -50,7 +50,7 @@ namespace DomFx.Api.Builder.Builders
         {
             style = new CompositeStyle(
                 style ?? new NullStyle(),
-                MakeStyle(height, width, margins, borders, flow, breakable, followLineHeight, keepWithNextLine, backgroundColor, color, horizontalAlignment, font));
+                MakeStyle(height, width, margins, borders, flow, breakable, followLineHeight, keepWithNextLine, backgroundColor, color, horizontalAlignment, font, null));
 
             return Box(name, style, children ?? Nothing());
         }
@@ -86,11 +86,12 @@ namespace DomFx.Api.Builder.Builders
             Color? color = null,
             HorizontalAlignment? horizontalAlignment = null,
             IFont font = null,
+            string tail = null,
             Element children = null)
         {
             style = new CompositeStyle(
                 style ?? new NullStyle(),
-                MakeStyle(height, width, margins, borders, flow, breakable, followLineHeight, keepWithNextLine, backgroundColor, color, horizontalAlignment, font));
+                MakeStyle(height, width, margins, borders, flow, breakable, followLineHeight, keepWithNextLine, backgroundColor, color, horizontalAlignment, font, tail));
 
             return Text(name, text ?? "", style, children ?? Nothing());
         }
@@ -130,7 +131,7 @@ namespace DomFx.Api.Builder.Builders
         {
             style = new CompositeStyle(
                 style ?? new NullStyle(),
-                MakeStyle(height, width, margins, borders, flow, breakable, followLineHeight, keepWithNextLine, backgroundColor, color, horizontalAlignment, font));
+                MakeStyle(height, width, margins, borders, flow, breakable, followLineHeight, keepWithNextLine, backgroundColor, color, horizontalAlignment, font, null));
 
             return Image(name, source, style, children ?? Nothing());
         }
@@ -206,7 +207,8 @@ namespace DomFx.Api.Builder.Builders
             Color? backgroundColor, 
             Color? color, 
             HorizontalAlignment? horizontalAlignment, 
-            IFont font)
+            IFont font,
+            string tail)
         {
             return new InlineStyle(style =>
             {
@@ -245,6 +247,9 @@ namespace DomFx.Api.Builder.Builders
 
                 if (font != null)
                     style.Font(font);
+
+                if (tail != null)
+                    style.Tail(tail);
             });
         }
     }

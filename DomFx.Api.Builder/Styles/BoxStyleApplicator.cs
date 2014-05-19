@@ -115,6 +115,15 @@ namespace DomFx.Api.Builder.Styles
                 text.Font = font;
             }
         }
+
+        public void Tail(string character)
+        {
+            var text = element as Text;
+            if (text != null)
+            {
+                text.Tail = character;
+            }
+        }
     }
 
     //public class TextStyleApplicator : 
