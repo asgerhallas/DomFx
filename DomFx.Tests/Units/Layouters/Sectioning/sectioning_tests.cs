@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Media;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification;
 using DomFx.Tests.Fakes;
@@ -15,11 +16,13 @@ namespace DomFx.Tests.Units.Layouters.Sectioning
 
         protected Section Section(Content header = null,
                                   Content footer = null,
-                                  Content content = null)
+                                  Content content = null,
+                                  Color? backgroundColor = default)
         {
             var section = new Section(content ?? DomFx.Layouters.Specification.Content.Empty,
                                       header ?? DomFx.Layouters.Specification.Content.Empty,
-                                      footer ?? DomFx.Layouters.Specification.Content.Empty);
+                                      footer ?? DomFx.Layouters.Specification.Content.Empty,
+                                      backgroundColor ?? Colors.Transparent);
 
             sections.Add(section);
             return section;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Media;
 using DomFx.Layouters.Specification;
 
 namespace DomFx.Layouters
@@ -36,7 +37,8 @@ namespace DomFx.Layouters
                     from page in PagingLayouter.Layout(pageInnerHeight, LiningLayouter.Layout(section.Content.Elements, pageInnerWidth).AsLines())
                     select page.Move(section.Content.Margins.Left, section.Content.Margins.Top + headerHeight)
                         .OverlayWith(header, section.Header.Margins.Left, section.Header.Margins.Top)
-                        .OverlayWith(footer, section.Footer.Margins.Left, pageHeight - footerHeight));
+                        .OverlayWith(footer, section.Footer.Margins.Left, pageHeight - footerHeight)
+                        .SetBackgroundColor(section.BackgroundColor));
         }
     }
 }

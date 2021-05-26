@@ -1,16 +1,19 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Media;
 
 namespace DomFx.Layouters
 {
     public class Page
     {
-        Page(IEnumerable<FixedElement> elements)
+        Page(IEnumerable<FixedElement> elements, Color backgroundColor = default)
         {
             Elements = elements.ToList();
+            BackgroundColor = backgroundColor;
         }
 
         public List<FixedElement> Elements { get; private set; }
+        public Color BackgroundColor { get; }
 
         public Unit OuterHeight
         {
@@ -43,6 +46,8 @@ namespace DomFx.Layouters
         {
             return new Page(Elements.Select(x => x.Move(offsetLeft, offsetTop)));
         }
+
+        public Page SetBackgroundColor(Color color) => new Page(Elements, color);
 
         public Page OverlayWith(Page page, Unit offsetLeft, Unit offsetTop)
         {

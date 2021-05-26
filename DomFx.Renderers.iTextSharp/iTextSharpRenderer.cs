@@ -29,12 +29,28 @@ namespace DomFx.Renderers.iTextSharp
             var currentPageNumber = 1;
 
             var document = new Document(new Rectangle((float) pageWidth.Points, (float) pageHeight.Points));
-            
+
             var memoryStream = new MemoryStream();
             var writer = PdfWriter.GetInstance(document, memoryStream);
-            document.Open();
-            foreach (var page in pages)
+            foreach (var x in pages.Select((p, i) => new { page = p, index = i }))
             {
+                var page = x.page;
+                var index = x.index;
+
+                var ps = document.PageSize;
+                ps.BackgroundColor = page.BackgroundColor.ToiTextSharpColor();
+                document.SetPageSize(ps);
+
+                if (index == 0)
+                {
+                    document.Open();
+                }
+                else
+                {
+                    currentPageNumber++;
+                    document.NewPage();
+                }
+
                 foreach (var element in page.Elements)
                 {
                     borderRenderer.Render(writer, element);
@@ -48,8 +64,6 @@ namespace DomFx.Renderers.iTextSharp
                     if (element.Specification is Texted)
                         textRenderer.Render(writer, element);
                 }
-                currentPageNumber++;
-                document.NewPage();
             }
 
             document.Close();

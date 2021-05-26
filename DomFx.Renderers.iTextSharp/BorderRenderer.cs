@@ -1,7 +1,6 @@
 using DomFx.Layouters;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-using Color = System.Drawing.Color;
 
 namespace DomFx.Renderers.iTextSharp
 {
@@ -20,7 +19,7 @@ namespace DomFx.Renderers.iTextSharp
                 BorderWidthRight = (float) spec.Borders.Right.Points,
                 BorderWidthBottom = (float) spec.Borders.Bottom.Points,
                 BorderWidthLeft = (float) spec.Borders.Left.Points,
-                BorderColor = new global::iTextSharp.text.Color(Color.FromArgb(spec.Borders.Color.A, spec.Borders.Color.R, spec.Borders.Color.G, spec.Borders.Color.B))
+                BorderColor = spec.Borders.Color.ToiTextSharpColor()
             };
 
             writer.DirectContent.Rectangle(rectangle);

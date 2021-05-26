@@ -78,7 +78,9 @@ namespace DomFx.Tests.Units.Api.Fluent
 
             public override void Init()
             {
-                Section().Content(content);
+                Section(Colors.Yellow).Content(content);
+                Section(Colors.Crimson).Content(content);
+                Section(Colors.Khaki).Content(content);
             }
         }
 

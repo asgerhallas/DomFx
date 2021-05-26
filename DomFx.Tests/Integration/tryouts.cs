@@ -41,6 +41,27 @@ namespace DomFx.Tests.Integration
         }
 
         [Fact]
+        public void background_color()
+        {
+            Setup(() =>
+            {
+                var manifestResourceStream = GetType().Assembly.GetManifestResourceStream("DomFx.Tests.Resources.DINOffc.ttf");
+                var readFully = ReadFully(manifestResourceStream);
+                var baseFont = BaseFont.CreateFont("DINOffc.ttf", BaseFont.CP1252, true, true, readFully, null);
+
+                Text()
+                    .Font(new iTextSharpFont(baseFont, 12, 12))
+                    .Text(File.ReadAllText("Integration\\longtext1.txt")).Width(17);
+
+            });
+
+            Layout();
+
+            ShowWithiTextSharp();
+        }
+
+
+        [Fact]
         public void end_of_text_is_missing_on_page()
         {
             Setup(() =>
@@ -175,7 +196,7 @@ namespace DomFx.Tests.Integration
             ShowWithiTextSharp();
         }
 
-        [Fact(Skip = "")]
+        [Fact]
         public void test_itextsharp()
         {
             Setup(() => Image()
@@ -184,7 +205,7 @@ namespace DomFx.Tests.Integration
 
             Layout();
 
-            ShowWithiTextSharp();
+            ShowWithPdfSharp();
         }
 
         public static byte[] ReadFully(Stream input)

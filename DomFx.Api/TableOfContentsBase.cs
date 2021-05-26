@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Media;
 using DomFx.Layouters;
 
 namespace DomFx.Api
@@ -35,9 +36,9 @@ namespace DomFx.Api
 
         public abstract void Init();
 
-        protected IBuildWithContents<TReportData> Section()
+        protected IBuildWithContents<TReportData> Section(Color? backgroundColor = default)
         {
-            var sectionBuilder = new SectionBuilder<TReportData>(reportData, standardUnit);
+            var sectionBuilder = new SectionBuilder<TReportData>(reportData, standardUnit, backgroundColor ?? Colors.Transparent);
             sectionBuilders.Add(sectionBuilder);
             return sectionBuilder;
         }

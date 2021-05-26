@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Windows.Media;
 using DomFx.Layouters;
 using DomFx.Layouters.Specification;
 
@@ -17,14 +18,17 @@ namespace DomFx.Api
     {
         readonly TReportData reportData;
         readonly UnitType standardUnitType;
+        readonly Color backgroundColor;
+
         ContentBuilder<TReportData> contentBuilder;
         ContentBuilder<TReportData> footerBuilder;
         ContentBuilder<TReportData> headerBuilder;
 
-        public SectionBuilder(TReportData reportData, UnitType standardUnitType)
+        public SectionBuilder(TReportData reportData, UnitType standardUnitType, Color backgroundColor)
         {
             this.reportData = reportData;
             this.standardUnitType = standardUnitType;
+            this.backgroundColor = backgroundColor;
             contentBuilder = new NullContentBuilder<TReportData>();
             headerBuilder = new NullContentBuilder<TReportData>();
             footerBuilder = new NullContentBuilder<TReportData>();
@@ -56,7 +60,7 @@ namespace DomFx.Api
 
         public Section Render()
         {
-            return new Section(contentBuilder.Render(), headerBuilder.Render(), footerBuilder.Render());
+            return new Section(contentBuilder.Render(), headerBuilder.Render(), footerBuilder.Render(), backgroundColor);
         }
     }
 
