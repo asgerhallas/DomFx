@@ -36,7 +36,7 @@ namespace DomFx.Api
 
         public abstract void Init();
 
-        protected IBuildWithContents<TReportData> Section(Color? backgroundColor = default)
+        public IBuildWithContents<TReportData> Section(Color? backgroundColor = default)
         {
             var sectionBuilder = new SectionBuilder<TReportData>(reportData, standardUnit, backgroundColor ?? Colors.Transparent);
             sectionBuilders.Add(sectionBuilder);

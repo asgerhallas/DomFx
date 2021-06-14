@@ -46,6 +46,7 @@ namespace DomFx.Layouters
             {
                 if (line.Top >= TopOfNextPage(currentPageNumer))
                 {
+                    currentPage.PageNumber = currentPageNumer;
                     pagedDocument.Add(currentPage);
                     currentPage = currentPage.Next();
                     currentPageNumer++;
@@ -54,6 +55,7 @@ namespace DomFx.Layouters
                 currentPage.Add(line, TopOfPage(currentPageNumer));
             }
 
+            currentPage.PageNumber = currentPageNumer;
             pagedDocument.Add(currentPage);
             return pagedDocument;
         }

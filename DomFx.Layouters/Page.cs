@@ -14,6 +14,7 @@ namespace DomFx.Layouters
 
         public List<FixedElement> Elements { get; private set; }
         public Color BackgroundColor { get; }
+        public int PageNumber { get; set; }
 
         public Unit OuterHeight
         {

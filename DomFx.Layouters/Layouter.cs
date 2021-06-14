@@ -19,7 +19,7 @@ namespace DomFx.Layouters
         public Layouter(Document document, Unit pageWidth, Unit pageHeight)
         {
             this.document = document;
-            this.pageWidth = pageWidth;
+            this.pageWidth = pageWidth; 
             this.pageHeight = pageHeight;
         }
 
@@ -35,7 +35,7 @@ namespace DomFx.Layouters
                     let pageInnerWidth = pageWidth - section.Content.Margins.TotalHorizontal
                     let pageInnerHeight = pageHeight - section.Content.Margins.TotalVertical - headerHeight - footerHeight
                     from page in PagingLayouter.Layout(pageInnerHeight, LiningLayouter.Layout(section.Content.Elements, pageInnerWidth).AsLines())
-                    select page.Move(section.Content.Margins.Left, section.Content.Margins.Top + headerHeight)
+                    select page.Move(section.Content.Margins.Left, section.Content.Margins.Top + (section.FirstPageHeaderHasNoHeight && page.PageNumber == 1 ? Unit.Zero : headerHeight))
                         .OverlayWith(header, section.Header.Margins.Left, section.Header.Margins.Top)
                         .OverlayWith(footer, section.Footer.Margins.Left, pageHeight - footerHeight)
                         .SetBackgroundColor(section.BackgroundColor));

@@ -13,6 +13,7 @@ namespace DomFx.Tests.Units.Api.Fluent
         readonly TOC toc;
         protected Document document;
         Action setupContent;
+        Action<TOC> setupToc;
 
         protected content_tests()
         {
@@ -29,9 +30,15 @@ namespace DomFx.Tests.Units.Api.Fluent
             setupContent = setup;
         }
 
+        protected void SetupTOC(Action<TOC> setup)
+        {
+            setup(toc);
+        }
+
         public override void Render()
         {
-            setupContent();
+            if (setupContent != null)
+                setupContent();
         }
 
         protected TSpec Specification<TSpec>(string name) where TSpec : ElementSpecification
@@ -66,7 +73,7 @@ namespace DomFx.Tests.Units.Api.Fluent
             return null;
         }
 
-        class TOC : TableOfContentsBase<int>
+        protected class TOC : TableOfContentsBase<int>
         {
             readonly IContent<int> content;
 
@@ -78,9 +85,10 @@ namespace DomFx.Tests.Units.Api.Fluent
 
             public override void Init()
             {
-                Section(Colors.Yellow).Content(content);
-                Section(Colors.Crimson).Content(content);
-                Section(Colors.Khaki).Content(content);
+                Section().Content(content);
+                //Section(Colors.Yellow).Content(content);
+                //Section(Colors.Crimson).Content(content);
+                //Section(Colors.Khaki).Content(content);
             }
         }
 
@@ -88,7 +96,7 @@ namespace DomFx.Tests.Units.Api.Fluent
         {
             public override void Render()
             {
-                Box().Height(10).BackgroundColor(Colors.Brown);
+                Box().Height(10).Borders(0.1, 0.1, 0.1, 0.1, Color.FromRgb(200, 0, 0));
             }
         }
     }

@@ -1,10 +1,8 @@
 ﻿using System.IO;
 using System.Windows.Media;
 using DomFx.Api;
-using DomFx.Layouters;
 using DomFx.Layouters.Specification;
 using DomFx.Renderers.iTextSharp;
-using DomFx.Tests.Fakes;
 using Xunit;
 using iTextSharp.text.pdf;
 
@@ -52,7 +50,6 @@ namespace DomFx.Tests.Integration
                 Text()
                     .Font(new iTextSharpFont(baseFont, 12, 12))
                     .Text(File.ReadAllText("Integration\\longtext1.txt")).Width(17);
-
             });
 
             Layout();
@@ -73,6 +70,51 @@ namespace DomFx.Tests.Integration
                 Text()
                     .Font(new iTextSharpFont(baseFont, 12, 12))
                     .Text(File.ReadAllText("Integration\\longtext1.txt")).Width(17);
+            });
+
+            Layout();
+
+            ShowWithiTextSharp();
+        }
+
+        public class MyContent : ContentBase<int>
+        {
+            public override void Render()
+            {
+                var manifestResourceStream = GetType().Assembly.GetManifestResourceStream("DomFx.Tests.Resources.DINOffc.ttf");
+                var readFully = ReadFully(manifestResourceStream);
+                var baseFont = BaseFont.CreateFont("DINOffc.ttf", BaseFont.CP1252, true, true, readFully, null);
+
+                //Box()
+                //    .Width(17.6);
+
+                //Text()
+                //    .Font(new iTextSharpFont(baseFont, 12, 12))
+                //    .Text("HEADER")
+                //    .Width(17);
+
+                //Text()
+                //    .Font(new iTextSharpFont(baseFont, 12, 12))
+                //    .Text("Kort tekst\n\nmere kort tekst")
+                //    .Width(17);
+
+                Text()
+                    .Font(new iTextSharpFont(baseFont, 12, 12))
+                    .Text(File.ReadAllText("Integration\\longtext1.txt"))
+                    .Width(17);
+
+                //End<Box>();
+            }
+        }
+
+        [Fact]
+        public void negaitve_margin_page_break()
+        {
+            SetupTOC(toc =>
+            {
+                toc.Section()
+                    .Header<Header>(firstPageHeaderHasNoHeight: true)
+                    .Content(new MyContent());
             });
 
             Layout();

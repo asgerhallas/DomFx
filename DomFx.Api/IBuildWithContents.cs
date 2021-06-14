@@ -9,7 +9,7 @@ namespace DomFx.Api
     public interface IBuildWithContents<TReportData>
     {
         ContentBuilder<TContent, TReportData> Footer<TContent>() where TContent : class, IContent<TReportData>, new();
-        ContentBuilder<TContent, TReportData> Header<TContent>() where TContent : class, IContent<TReportData>, new();
+        ContentBuilder<TContent, TReportData> Header<TContent>(bool firstPageHeaderHasNoHeight = false) where TContent : class, IContent<TReportData>, new();
         ContentBuilder<TContent, TReportData> Content<TContent>() where TContent : class, IContent<TReportData>, new();
         ContentBuilder<TContent, TReportData> Content<TContent>(TContent content) where TContent : class, IContent<TReportData>;
     }
@@ -23,6 +23,8 @@ namespace DomFx.Api
         ContentBuilder<TReportData> contentBuilder;
         ContentBuilder<TReportData> footerBuilder;
         ContentBuilder<TReportData> headerBuilder;
+
+        bool firstPageHeaderHasNoHeight;
 
         public SectionBuilder(TReportData reportData, UnitType standardUnitType, Color backgroundColor)
         {
@@ -46,8 +48,9 @@ namespace DomFx.Api
             return (ContentBuilder<TContent, TReportData>)contentBuilder;
         }
 
-        public ContentBuilder<TContent, TReportData> Header<TContent>() where TContent : class, IContent<TReportData>, new()
+        public ContentBuilder<TContent, TReportData> Header<TContent>(bool firstPageHeaderHasNoHeight = false) where TContent : class, IContent<TReportData>, new()
         {
+            this.firstPageHeaderHasNoHeight = firstPageHeaderHasNoHeight;
             headerBuilder = new ContentBuilder<TContent, TReportData>(this, null, reportData, standardUnitType);
             return (ContentBuilder<TContent, TReportData>) headerBuilder;
         }
@@ -60,7 +63,7 @@ namespace DomFx.Api
 
         public Section Render()
         {
-            return new Section(contentBuilder.Render(), headerBuilder.Render(), footerBuilder.Render(), backgroundColor);
+            return new Section(contentBuilder.Render(), headerBuilder.Render(), footerBuilder.Render(), backgroundColor, firstPageHeaderHasNoHeight);
         }
     }
 
@@ -117,7 +120,7 @@ namespace DomFx.Api
             return section.Footer<TFooter>();
         }
 
-        public ContentBuilder<THeader, TReportData> Header<THeader>() where THeader : class, IContent<TReportData>, new()
+        public ContentBuilder<THeader, TReportData> Header<THeader>(bool firstPageHeaderHasNoHeight = true) where THeader : class, IContent<TReportData>, new()
         {
             return section.Header<THeader>();
         }

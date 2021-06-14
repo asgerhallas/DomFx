@@ -22,7 +22,8 @@ namespace DomFx.Tests.Units.Layouters.Sectioning
             var section = new Section(content ?? DomFx.Layouters.Specification.Content.Empty,
                                       header ?? DomFx.Layouters.Specification.Content.Empty,
                                       footer ?? DomFx.Layouters.Specification.Content.Empty,
-                                      backgroundColor ?? Colors.Transparent);
+                                      backgroundColor ?? Colors.Transparent,
+                                      true);
 
             sections.Add(section);
             return section;
